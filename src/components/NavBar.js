@@ -1,17 +1,13 @@
 import React from 'react'
 
 const NavBar = () => {
-  return (
-    <header> 
-            <h1>Mi E-Commerce </h1>  
-            <nav>
-                 <a href="#">cat1</a>   
-                 <a href="#">cat2</a>
-                 <a href="#">cat3</a>       
-            </nav> 
-    </header>
-  )
+    return (
+        <nav className="nav">
+                <a href="#" className="nav__link">cat1</a>   
+                <a href="#" className="nav__link">cat2</a>
+                <a href="#" className="nav__link">cat3</a>  
+        </nav> 
+    )
 }
-
 
 export default NavBar

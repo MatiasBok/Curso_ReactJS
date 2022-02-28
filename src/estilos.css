@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Slackey&display=swap');
+
 * {
     padding: 0;
     margin:0;
@@ -8,6 +10,52 @@ html, body, #root{
     height:100vh;
 }
 
+#root{
+    display:flex;
+    flex-direction: column;
+}
+
+#layout-header{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background-color: orangered;
+    box-shadow: 0 5px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Slackey', cursive;
+}
+
+a{  
+    text-decoration: none;
+    color:yellow
+}
+
+#layout-header nav a{
+    margin-left: 2rem;
+}
+
 body{
     background-color: greenyellow;
+}
+
+main{
+    flex-grow: 1;
+    padding:1rem;
+}
+
+main h2{
+    font-size: 2.5rem;
+    font-family: 'Slackey', cursive;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+#main-footer{
+    background-color:orangered;
+    padding:1rem;
+    font-family: 'Slackey', cursive;
+    font-size: 0.8rem;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
 }
