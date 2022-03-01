@@ -52,10 +52,10 @@ main h2{
 
 #main-footer{
     background-color:orangered;
-    padding:1rem;
+    padding:0.8rem;
     font-family: 'Slackey', cursive;
     font-size: 0.8rem;
-    display:flex;
+    display: flex;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
 }
