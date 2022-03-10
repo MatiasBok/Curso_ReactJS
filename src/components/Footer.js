@@ -1,12 +1,12 @@
 import React from 'react'
-import Nav from './Nav'
+import Navbar from './Navbar'
 
 const Footer = () => {
   return (
     <footer id="main-footer" classname="footer-black">
         <p>&copy; Copyright 2022 - Matias Bökenhans</p>
         <p>Todos los derechos reservados</p>
-        <Nav />
+        <Navbar />
     </footer>
   )
 }

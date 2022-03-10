@@ -1,5 +1,4 @@
 import Header from "./components/Header";
-import NavBar from "./components/Nav";
 import ItemListContainer from "./components/ItemListContainer";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
