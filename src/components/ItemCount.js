@@ -1,8 +1,6 @@
-import React from 'react'
-import {useState} from 'react'
-import {Container} from 'react-bootstrap'
-import Item from './Item'
-
+import React from 'react';
+import {useState} from 'react';
+import {Container} from 'react-bootstrap';
 
 const ItemCount = ({stock,inicial}) => {
 
@@ -20,8 +18,8 @@ const ItemCount = ({stock,inicial}) => {
         }
     }
     
-    const handleResetear = () => {
-          setEstado(1);
+    const handleAgregarAlCarrito = () => {
+          console.log();
     }
 
     return (
@@ -30,9 +28,8 @@ const ItemCount = ({stock,inicial}) => {
             <p>Mi Contador va: {estado}</p>
             <button onClick={handleSumar}>Sumar</button>
             <button onClick={handleRestar}>Restar</button>
-            <button onClick={handleResetear}>Resetear</button>
+            <button onClick={handleAgregarAlCarrito}>Agregar al carrito</button>
         </Container>
-        <Item />
         </>
     );
 }

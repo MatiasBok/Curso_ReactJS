@@ -1,10 +1,15 @@
-import React from 'react'
-import Item from './Item'
+import React from 'react';
+import Card from './Card'
 
-const ItemList = () => {
+const ItemList = ({productos}) => {
     return (
         <>
-        <Item />
+        <ul>
+            {productos.map((miProducto)=>{
+                return <Card key={miProducto.id}>{miProducto.nombre}<hr/></Card>
+            })}
+        </ul>
+        <Card />
         </>
         
     )

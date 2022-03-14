@@ -10,7 +10,7 @@ const App = () => {
     <>
     <Header />
     <Main nombre="Matias" edad={35}/>
-    <ItemListContainer />
+    <ItemListContainer/>
     <Footer />
     </>
   )
