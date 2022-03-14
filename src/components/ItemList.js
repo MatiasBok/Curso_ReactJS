@@ -1,18 +1,26 @@
 import React from 'react';
-import Card from './Card'
+import Item from './Item'
 
-const ItemList = ({productos}) => {
+export default function ItemList ({productos}) {
     return (
-        <>
-        <ul>
-            {productos.map((miProducto)=>{
-                return <Card key={miProducto.id}>{miProducto.nombre}<hr/></Card>
-            })}
-        </ul>
-        <Card />
-        </>
-        
+        <section>
+           {productos.map(miProducto=>{
+              return(
+                    <div>
+                        <Item
+                        key={miProducto.id}
+                        Producto= {miProducto.nombre}
+                        Precio= {miProducto.precio}
+                        Stock= {miProducto.stock}
+                        Descripción= {miProducto.description}
+                        Marca= {miProducto.marca}
+                        />
+                    </div>
+              )
+            })}            
+        </section>
     )
 }
 
-export default ItemList
+
+

@@ -7,12 +7,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   return (
-    <>
+    <div>
     <Header />
     <Main nombre="Matias" edad={35}/>
-    <ItemListContainer/>
+    <ItemListContainer greeting="Bienvenidos!"/>
     <Footer />
-    </>
+    </div>
   )
 }
 
