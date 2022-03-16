@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card'
 
 export default function Item({productos}) {
   return(    
@@ -7,10 +8,10 @@ export default function Item({productos}) {
          <Card.Body>
             <Card.Title>{productos.nombre}</Card.Title>
             <p>${productos.precio}</p>
-            <small>{productos.stock}</small>
+            <small>Stock: {productos.stock}</small>
             <Card.Text> {productos.description}</Card.Text>
             <strong>{productos.marca}</strong>
-            <Button variant="primary">Ver detalle</Button>
+            
         </Card.Body>
     </Card>
     )}

@@ -1,28 +1,30 @@
 import React, {useState, useEffect} from 'react';
 import products from '../../database/products.js';
+import ItemDetail from './ItemDetail.js'
 
 
 const ItemDetailContainer = () => {
 
-const [producto,setProductos] = useState([]);
+const [producto,setProducto] = useState([]);
 
 function getProduct(){
 
     return new Promise ((resolve)=>{
         setTimeout(function(){
             resolve(products[0]);
-        },4000);
+        },2000);
     })
 }
 
 useEffect (() =>{ 
         getProduct()
-        .then(respuestaPromise => setProductos(respuestaPromise))
+        .then(respuestaPromise => setProducto(respuestaPromise))
     },[]);
     
  return (
         <>
-         <p>A continuación podrás ver todos nuestro merchandising</p>
+         <p>A continuación podrás ver todo nuestro merchandising</p>
+         <ItemDetail producto={producto}/>
         </>
             )
 }

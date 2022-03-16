@@ -1,5 +1,4 @@
 import React from 'react';
-import ItemCount from './ItemCount.js';
 
 const Main = ({nombre,edad}) => {
     
@@ -11,7 +10,6 @@ const Main = ({nombre,edad}) => {
             <ul>
                 <li>Cargando los productos... Por favor, espere</li>
             </ul>
-            <ItemCount stock={10} inicial={1}/>
         </main>
     );
 }

@@ -22,12 +22,18 @@ html, body, #root{
     padding: 0.5rem 1rem;
     background-color: orangered;
     box-shadow: 0 5px 4px rgba(0, 0, 0, 0.5);
+    
+}
+
+.header__title{
     font-family: 'Slackey', cursive;
+    color:rgb(10, 195, 241);
 }
 
 a{  
     text-decoration: none;
-    color:yellow
+    color:yellow;
+    font-size: 1.5rem;
 }
 
 #layout-header nav a{
@@ -58,4 +64,20 @@ main h2{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.cardDetails{
+    width:100%; 
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    
+}
+
+.cardImagen{
+    width:50%;
+}
+
+.cardBody{
+    margin-left: 10rem;
 }

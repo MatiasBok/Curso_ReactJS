@@ -2,7 +2,7 @@ import React from 'react';
 import {useState} from 'react';
 import {Container} from 'react-bootstrap';
 
-const ItemCount = ({stock,inicial}) => {
+const ItemCount = ({stock,inicial=1}) => {
 
     let [estado,setEstado]=useState(inicial)
 
@@ -19,7 +19,7 @@ const ItemCount = ({stock,inicial}) => {
     }
     
     const handleAgregarAlCarrito = () => {
-          console.log();
+          alert('Agregaste al carrito ' + estado + ' producto(s)' );
     }
 
     return (
