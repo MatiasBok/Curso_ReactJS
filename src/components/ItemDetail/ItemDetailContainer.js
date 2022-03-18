@@ -1,33 +1,39 @@
 import React, {useState, useEffect} from 'react';
 import products from '../../database/products.js';
-import ItemDetail from './ItemDetail.js'
+import ItemDetail from './ItemDetail.js';
+import {useParams} from 'react-router-dom';
 
 
-const ItemDetailContainer = () => {
-
-const [producto,setProducto] = useState([]);
-
-function getProduct(){
-
+function getProduct(idproducto){
     return new Promise ((resolve)=>{
         setTimeout(function(){
-            resolve(products[0]);
+           let producto = products.find(producto => producto.id === Number(idproducto))
+           resolve(producto)
         },2000);
     })
 }
 
+function ItemDetailContainer(){
+    const [producto,setProducto] = useState([]);
+    const [idproducto] = useParams();
+
+
 useEffect (() =>{ 
-        getProduct()
+        getProduct(idproducto)
         .then(respuestaPromise => setProducto(respuestaPromise))
-    },[]);
-    
+    },[idproducto]);
+
+
  return (
         <>
          <p>A continuación podrás ver todo nuestro merchandising</p>
+         <div>
          <ItemDetail producto={producto}/>
+         </div>
         </>
             )
 }
+
    
 
 export default ItemDetailContainer;

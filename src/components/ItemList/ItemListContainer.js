@@ -4,37 +4,40 @@ import ItemList from './ItemList.js';
 import {toast} from 'react-toastify';
 import {useParams} from 'react-router-dom'
 
-
-const ItemListContainer = () => {
-
-const [loading,setLoading]=useState(true)
-const [productos,setProductos] = useState([]);
-
-const {idCategoria}= useParams()
-
-useEffect(()=>{
-    toast.info("Trayendo productos...")
-    
-    const pedido =new Promise ((resolve,reject)=>{
-        setTimeout(()=>{
-            console.log(idCategoria)
-            resolve(products);
-            //reject(products);
-        },4000);
+function getProductos(idcategoria){
+    return new Promise ((resolve)=>{
+        setTimeout(function(){
+            if (!idcategoria){
+                resolve(products)
+            }else{
+                let productos = products.filter(productos => productos.categoria === idcategoria);
+            resolve(productos)
+            }
+        },2000);
     })
+}
 
-    pedido
-    .then ((resultado) => {
-        toast.dismiss()
-        setProductos(resultado)
-    })
-    .catch((error)=>{
-        toast.error("Error al traer los productos")
-    })
-    .finally(()=>{
-        setLoading(false)
-    })
-},[])
+function ItemListContainer () {
+    const [productos,setProductos] = useState([]);
+    const {idcategoria}= useParams()
+    const [loading,setLoading]=useState(true)
+
+    useEffect(()=>{
+        
+        toast.info("Trayendo productos...")
+        getProductos(idcategoria)
+        pedido
+          .then ((respuestaPromise => setProductos(respuestaPromise)) => {
+            toast.dismiss(),
+            setProductos(resultado)
+        })
+        .catch((error)=>{
+            toast.error("Error al traer los productos")
+        })
+        .finally(()=>{
+            setLoading(false)
+        })
+    },[idcategoria])
 
     if (loading){
         return <h1>Cargando...</h1>
@@ -42,6 +45,17 @@ useEffect(()=>{
         return <ItemList productos={productos}/>
     }
 }
+    
+
+
+
+
+
+
+
+
+
+    
 
 
 export default ItemListContainer

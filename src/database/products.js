@@ -2,6 +2,7 @@ const products = [
   {
     "id": 1,
     "nombre": "Gorro deportivo",
+    "categoria": "Indumentaria",
     "precio": 3.563,
     "stock": 11,
     "description": "Gorro de tenis blanco de excelente calidad",
@@ -10,6 +11,7 @@ const products = [
   }, {
     "id": 2,
     "nombre": "Remera tenis",
+    "categoria": "Indumentaria",
     "precio": 4.500,
     "stock": 56,
     "description": "Remera sintética con 30% de algodón.Varios colores disponibles: Gris, blanco, negro y rojo",
@@ -18,6 +20,7 @@ const products = [
   }, {
     "id": 3,
     "nombre": "Zapatillas de tenis de mujer",
+    "categoria": "Calzado",
     "precio": 24.350,
     "stock": 5,
     "description": "Zapatilla de mujer, modelo 2021. Muy cómodas y excelentes para jugadoras de nivel intermedio y avanzado.",
@@ -26,6 +29,7 @@ const products = [
   }, {
     "id": 4,
     "nombre": "Cubre grips para tenis y paddel. Pack",
+    "categoria": "Raquetas",
     "precio": 10.862,
     "stock": 16,
     "description": "Caramelera de 60 cubregrips de varios colores",
@@ -34,6 +38,7 @@ const products = [
   }, {
     "id": 5,
     "nombre": "Medias de tenis de algodón para hombre.Pack x3 ",
+    "categoria": "Indumentaria",
     "precio": 1.675,
     "stock": 10,
     "description": "Medias de tenis para hombre de color blanco con el logo de la marca de diferentes colores",
@@ -42,6 +47,7 @@ const products = [
   }, {
     "id": 6,
     "nombre": "Raqueta Wilson Pro Staff Presicion 100",
+    "categoria": "Raquetas",
     "precio": 28.500,
     "stock": 14,
     "description": "Potencia controlable y un precio atractivo, la Pro Staff Precision 100 es perfecta para jugadores de nivel intermedio que busquen una raqueta a buen precio, aunque también es apta para jugadores de nivel más avanzado. Encordada pesa 321 gramos, con balance de 33 cm, patrón abierto y un marco rígido, esta raqueta tiene una fórmula atemporal que viene a redefinir el juego moderno: precisión, potencia y efectos. ",
@@ -50,6 +56,7 @@ const products = [
   }, {
     "id": 7,
     "nombre": "Raqueta Babolat Aero Pro Nadal Jr",
+    "categoria": "Raquetas",
     "precio": 26.900,
     "stock": 5,
     "description": "Excelente raqueta para niños de entre 6 y 12 años de nivel básico a intermedio, liviana y firme. ",
@@ -58,6 +65,7 @@ const products = [
   }, {
     "id": 8,
     "nombre": "Asics Upcourt 4 Tenis-voley-importadas-negras/azul para hombre",
+    "categoria": "Calzado",
     "precio": 36900,
     "stock": 15,
     "description": "Excelentes zapatillas de tenis, importadas. Hay de color negra con verde, y azul con verde.",
@@ -65,100 +73,112 @@ const products = [
     "imageURL": "https://http2.mlstatic.com/D_NQ_NP_934721-MLA48065991298_102021-O.webp"
   }, {
     "id": 9,
-    "nombre": "Idaline",
-    "precio": 1088,
+    "nombre": "Raqueta Head Radical Elite #1 Strings",
+    "categoria":"Raquetas",
+    "precio": 29.990,
     "stock": 14,
-    "description": "Unsp fracture of shaft of unsp tibia, init for clos fx",
-    "marca": "Romaguera and Sons",
-    "imageURL": "#daa7aa"
+    "description": "RAQUETA HEAD RADICAL ELITE (VIENE ENCORDADA Y SIN FUNDA). Es ideal para principiantes, es una opción ideal para una amplia gama de jugadores casuales. La cabeza de gran tamaño crea un punto dulce más grande, ideal para los jugadores que aún dominan la precisión. Pesa 280g, su cabeza es de 102 IN y su longitud de 685 mm.",
+    "marca": "HEAD",
+    "imageURL": "https://http2.mlstatic.com/D_NQ_NP_911278-MLA45400726131_032021-O.webp"
   }, {
     "id": 10,
-    "nombre": "Ashia",
-    "precio": 3929,
+    "nombre": "Short Padel Quick Tenis Microfibra Tela Premium Bolsillos",
+    "categoria": "Indumentaria",
+    "precio": 1.735,
     "stock": 15,
-    "description": "Nondisp fx of body of unsp calcaneus, 7thG",
-    "marca": "Willms-Johns",
-    "imageURL": "#139152"
+    "description": "Fabricado con Microfibra premium con doble costura y bolsillos laterales; ideales para la práctica de pádel, tenis, running y otras actividades deportivas. Hay talles del S al XL",
+    "marca": "Kadur",
+    "imageURL": "https://http2.mlstatic.com/D_NQ_NP_2X_762095-MLA47871936407_102021-F.webp"
   }, {
     "id": 11,
-    "nombre": "Madlen",
-    "precio": 2126,
+    "nombre": "Short Nike Tempo En Negro/blanco",
+    "categoria": "Indumentaria",
+    "precio": 5.399,
     "stock": 7,
-    "description": "Nondisp commnt fx shaft of r fibula, 7thH",
-    "marca": "Bechtelar-Sipes",
-    "imageURL": "#25a244"
+    "description": "Ideal para todo tipo de deporte, muy cómodos y sobrios, el Short Nike Tempo reúne todas las condiciones para hacerlo tu preferido a la hora de competir o entrenar. Su tejido en poliéster con tecnología Dri-Fit dispersa el sudor y mantiene tu piel fresca y seca, dándote mejor ventilación. Además sus líneas blancas te dan visibilidad y al tiempo que te hará lucir un look relajado y cómodo.",
+    "marca": "Nike",
+    "imageURL": "https://http2.mlstatic.com/D_NQ_NP_717431-MLA45794690696_052021-O.webp"
   }, {
     "id": 12,
-    "nombre": "Margalit",
-    "precio": 1445,
+    "nombre": "Vestido Deportivo Liso Con Espalda Deportiva Mujer.",
+    "categoria": "Indumentaria",
+    "precio": 2.800,
     "stock": 8,
-    "description": "Nondisp oblique fx shaft of unsp fibula, 7thN",
-    "marca": "Kutch, Will and Schoen",
-    "imageURL": "#117dfe"
+    "description": "Vestido deportivo liso realizado en microfibra con espalda cavada. Excelente calidad y terminacion, super cómodo, tanto para realizar actividad fisica como para prenda de tiempo libre. No destiñe, no se achica. Apto lavarropas en frio. Único color, negro. Aclaración, no incluye la calza que se ve en la foto.",
+    "marca": "Anytime",
+    "imageURL": "https://http2.mlstatic.com/D_NQ_NP_2X_706594-MLA47441835008_092021-F.webp"
   }, {
     "id": 13,
-    "nombre": "Tarrance",
-    "precio": 2429,
+    "nombre": "Zapatillas Nike Air Zoom Prestige Hc Tenis Padel Mujer ",
+    "categoria": "Calzado",
+    "precio": 19.999,
     "stock": 14,
-    "description": "Disp fx of anterior column of unsp acetab, init for opn fx",
-    "marca": "Kovacek Inc",
-    "imageURL": "#8c08c7"
+    "description": "Modelo: AA8024-101; Color: Blanco; Disponible en: Talle 37.5 arg (equivalente a 7.5 US – 5 UK - 37 BR - 38.5 EUR y 24.5 cm plantilla)",
+    "marca": "Nike",
+    "imageURL": "https://http2.mlstatic.com/D_NQ_NP_864695-MLA49272425313_032022-O.webp"
   }, {
     "id": 14,
-    "nombre": "Madlen",
-    "precio": 1949,
+    "nombre": "Raqueta Tenis Head Graphene 360 Speed Mp Djokovic Grafito",
+    "categoria": "Raquetas",
+    "precio": 39.370,
     "stock": 13,
-    "description": "Unsp focal TBI w loss of consciousness of 31-59 min, init",
-    "marca": "McKenzie and Sons",
-    "imageURL": "#d1299b"
+    "description": "La Speed MP está disponible en un nuevo diseño con una combinación asimétrica de blanco mate y brillante y negro brillante. Incluye la nueva Tecnología Graphene 360+, una combinación de la transferencia de energía del Grafeno 360 y las innovadoras fibras en espiral para una flexión mejorada y un tacto de impacto limpio y un patrón de encordado 16/19 para un efecto mejorado durante puntos rápidos. El peso de 300 g equilibrio en 32 cm hacen este modelo particularmente estable, sobre todo detrás de la línea de fondo de la pista en las fases de juego más aceleradas y te permitirá responder cómodamente. Es perfecta para los jugadores de fondo de pista que gustan de los intercambios largos contra sus adversarios.",
+    "marca": "Head",
+    "imageURL": "https://http2.mlstatic.com/D_NQ_NP_811565-MLA45655636496_042021-O.webp"
   }, {
     "id": 15,
-    "nombre": "Werner",
-    "precio": 3780,
+    "nombre": "Pantalon Largo Wilson Tenis Padel",
+    "categoria": "Indumentaria",
+    "precio": 5.750,
     "stock": 16,
-    "description": "Sprain of medial collateral ligament of left knee",
-    "marca": "Klein-Aufderhar",
+    "description": "Pantalón largo Jogging tipo babucha, 80% algodón 15% poliester y %5 eslastano",
+    "marca": "Wilson",
     "imageURL": "#332d77"
   }, {
     "id": 16,
-    "nombre": "Marten",
-    "precio": 2621,
+    "nombre": "Pantalon Largo Babolat Pure Tenis Padel Gimnasia",
+    "categoria": "Indumentaria",
+    "precio": 8.990,
     "stock": 6,
-    "description": "Sltr-haris Type II physl fx upr end unsp tibia, 7thD",
-    "marca": "Klein, Hegmann and Hand",
-    "imageURL": "#bca536"
+    "description": "Pantalón Babolat Pure. Posee tecnología textil inteligente, concebido para favorecer la complejidad de gestos de los deportes, un corte biotécnico que acompaña al jugador en todos los desplazamientos del juego. Los materiales técnicos escogidos son ligeros y suaves al contacto. De limpieza muy fácil permiten su uso intensivo tanto en entrenamiento como en competición. Con puños elastizados y con cierres de cremallera. 65% Poliéster / 35% Algodón",
+    "marca": "Babolat",
+    "imageURL": "https://http2.mlstatic.com/D_NQ_NP_944416-MLA31134566019_062019-O.webp"
   }, {
     "id": 17,
-    "nombre": "Barty",
-    "precio": 4284,
+    "nombre": "Gorra Babolat Visera Cap Gorro Tenis Padel",
+    "categoria": "Indumentaria",
+    "precio": 3.175,
     "stock": 9,
-    "description": "Disp fx of lateral cuneiform of r ft, subs for fx w malunion",
-    "marca": "Smitham, Hyatt and Zemlak",
-    "imageURL": "#70e5e6"
+    "description": "Gorro con visera con cierre ajustable. Colores disponibles: azul, blanco y negro. ",
+    "marca": "Babolat",
+    "imageURL": "https://http2.mlstatic.com/D_NQ_NP_610889-MLA45807813687_052021-O.webp"
   }, {
     "id": 18,
-    "nombre": "Valeria",
-    "precio": 896,
+    "nombre": "Zapatillas De Tennis Babolat Drive 3 All Court Hombre",
+    "categoria": "Calzado",
+    "precio": 46.999,
     "stock": 5,
-    "description": "Puncture wound without foreign body of ear",
-    "marca": "Leannon, Auer and Rosenbaum",
-    "imageURL": "#a82c64"
+    "description": "Excelentes zapatillas de tennis importadas para todo tipo de superficia. Recomendadas para jugadores de alto nivel. Hay talles del 34 al 49",
+    "marca": "Babolat",
+    "imageURL": "https://http2.mlstatic.com/D_NQ_NP_2X_972248-MLA44571970554_012021-F.webp"
   }, {
     "id": 19,
-    "nombre": "Bree",
+    "nombre": "Remera Rf Roger Federer Con Su Firma Tenis 100% Algodón",
+    "categoria": "Indumentaria",
     "precio": 2054,
     "stock": 14,
-    "description": "Other injury of bronchus, bilateral, initial encounter",
-    "marca": "Koch-Gaylord",
-    "imageURL": "#5ef38f"
+    "description": "Remeras manga corta en algodón 24/1 peinado de excelente confección y estampada en vinilo textil termoadhesivo. Con cuello con terminación de tira de algodón. Hay varios colores de remera y de estampa",
+    "marca": "FUERZA G",
+    "imageURL": "https://http2.mlstatic.com/D_NQ_NP_694458-MLA48523749404_122021-O.webp"
   }, {
     "id": 20,
-    "nombre": "Ealasaid",
-    "precio": 1502,
+    "nombre": "Babolat Rpm Blast Set 12 Mts Nadal Cuerda Tenis",
+    "categoria": "Raquetas",
+    "precio": 2.390,
     "stock": 19,
-    "description": "Moderate persistent asthma with status asthmaticus",
-    "marca": "Gaylord and Sons",
-    "imageURL": "#fc253a"
+    "description": "El Babolat RPM Blast (Revoluciones Por Minuto) es un cordaje monofilamento que te ofrece una excelente combinación de efectos, potencia y una sensación única en el impacto. Gracias a su revestimiento de silicona enlazada, el potencial que facilita resulta sorprendente. Este cordaje es la elección perfecta para el jugador moderno con un estilo de juego como el de Rafael Nadal, Jo-Wilfried Tsonga y Sam Stosur. Todos ellos juegan con el fantástico RPM Blast.",
+    "marca": "Babolat",
+    "imageURL": "https://http2.mlstatic.com/D_NQ_NP_695318-MLA48481538417_122021-O.webp"
   }
 ]
 

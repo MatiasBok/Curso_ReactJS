@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card'
+import Card from 'react-bootstrap/Card';
 import {Link} from 'react-router-dom'
 
 export default function Item({productos}) {
@@ -12,7 +12,7 @@ export default function Item({productos}) {
             <small>Stock: {productos.stock}</small>
             <Card.Text> {productos.description}</Card.Text>
             <strong>{productos.marca}</strong>
-            <Link to={`/productos/${productos.id}`}>ver detalle</Link>            
+            <Link to={`/productos/${productos.id}`}>Ver detalle</Link>            
         </Card.Body>
     </Card>
     )}
