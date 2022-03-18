@@ -2,67 +2,67 @@ const products = [
   {
     "id": 1,
     "nombre": "Gorro deportivo",
-    "precio": 3563,
+    "precio": 3.563,
     "stock": 11,
     "description": "Gorro de tenis blanco de excelente calidad",
     "marca": "Wilson",
     "imageURL": "https://http2.mlstatic.com/D_NQ_NP_2X_997865-MLA48418368149_122021-F.webp"
   }, {
     "id": 2,
-    "nombre": "Rodie",
-    "precio": 3958,
-    "stock": 11,
-    "description": "Frostbite with tissue necrosis of left wrist, sequela",
-    "marca": "Nicolas, Gusikowski and Lubowitz",
-    "imageURL": "#5bd9f7"
+    "nombre": "Remera tenis",
+    "precio": 4.500,
+    "stock": 56,
+    "description": "Remera sintética con 30% de algodón.Varios colores disponibles: Gris, blanco, negro y rojo",
+    "marca": "Wilson",
+    "imageURL": "https://http2.mlstatic.com/D_NQ_NP_984562-MLA48830951213_012022-O.webp"
   }, {
     "id": 3,
-    "nombre": "Charis",
-    "precio": 4425,
-    "stock": 11,
-    "description": "Insect bite (nonvenomous) of right index finger, subs encntr",
-    "marca": "Vandervort, Mitchell and Weimann",
-    "imageURL": "#eb9e67"
+    "nombre": "Zapatillas de tenis de mujer",
+    "precio": 24.350,
+    "stock": 5,
+    "description": "Zapatilla de mujer, modelo 2021. Muy cómodas y excelentes para jugadoras de nivel intermedio y avanzado.",
+    "marca": "Wilson",
+    "imageURL": "https://http2.mlstatic.com/D_NQ_NP_892172-MLA49254887854_032022-O.webp"
   }, {
     "id": 4,
-    "nombre": "Bianca",
-    "precio": 3364,
-    "stock": 6,
-    "description": "Other specified osteochondropathies, right hand",
-    "marca": "Bergnaum and Sons",
-    "imageURL": "#1abb07"
+    "nombre": "Cubre grips para tenis y paddel. Pack",
+    "precio": 10.862,
+    "stock": 16,
+    "description": "Caramelera de 60 cubregrips de varios colores",
+    "marca": "Madma",
+    "imageURL": "https://http2.mlstatic.com/D_NQ_NP_2X_936263-MLA45496949973_042021-F.webp"
   }, {
     "id": 5,
-    "nombre": "Judon",
-    "precio": 3726,
+    "nombre": "Medias de tenis de algodón para hombre.Pack x3 ",
+    "precio": 1.675,
     "stock": 10,
-    "description": "Displ spiral fx shaft of r fibula, 7thH",
-    "marca": "Reichert and Sons",
-    "imageURL": "#addcf2"
+    "description": "Medias de tenis para hombre de color blanco con el logo de la marca de diferentes colores",
+    "marca": "Babolat",
+    "imageURL": "https://http2.mlstatic.com/D_NQ_NP_908928-MLA46885182508_072021-O.webp"
   }, {
     "id": 6,
-    "nombre": "Artur",
-    "precio": 2228,
+    "nombre": "Raqueta Wilson Pro Staff Presicion 100",
+    "precio": 28.500,
     "stock": 14,
-    "description": "Poisoning by oth nonsteroidal anti-inflam drugs, accidental",
-    "marca": "Kilback, Becker and Mertz",
-    "imageURL": "#751525"
+    "description": "Potencia controlable y un precio atractivo, la Pro Staff Precision 100 es perfecta para jugadores de nivel intermedio que busquen una raqueta a buen precio, aunque también es apta para jugadores de nivel más avanzado. Encordada pesa 321 gramos, con balance de 33 cm, patrón abierto y un marco rígido, esta raqueta tiene una fórmula atemporal que viene a redefinir el juego moderno: precisión, potencia y efectos. ",
+    "marca": "Wilson",
+    "imageURL": "https://http2.mlstatic.com/D_NQ_NP_768366-MLA48939523025_012022-O.webp"
   }, {
     "id": 7,
-    "nombre": "Cherey",
-    "precio": 913,
+    "nombre": "Raqueta Babolat Aero Pro Nadal Jr",
+    "precio": 26.900,
     "stock": 5,
-    "description": "Rupture of synovium, unspecified wrist",
-    "marca": "Raynor, Ebert and Towne",
-    "imageURL": "#90a3e7"
+    "description": "Excelente raqueta para niños de entre 6 y 12 años de nivel básico a intermedio, liviana y firme. ",
+    "marca": "Babolat",
+    "imageURL": "https://http2.mlstatic.com/D_NQ_NP_900465-MLA48295396020_112021-O.webp"
   }, {
     "id": 8,
-    "nombre": "Lorry",
-    "precio": 844,
+    "nombre": "Asics Upcourt 4 Tenis-voley-importadas-negras/azul para hombre",
+    "precio": 36900,
     "stock": 15,
-    "description": "Laceration of descending [left] colon",
-    "marca": "Jones, Luettgen and Douglas",
-    "imageURL": "#c6563a"
+    "description": "Excelentes zapatillas de tenis, importadas. Hay de color negra con verde, y azul con verde.",
+    "marca": "Asics",
+    "imageURL": "https://http2.mlstatic.com/D_NQ_NP_934721-MLA48065991298_102021-O.webp"
   }, {
     "id": 9,
     "nombre": "Idaline",
