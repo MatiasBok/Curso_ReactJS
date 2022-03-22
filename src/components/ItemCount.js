@@ -2,7 +2,7 @@ import React from 'react';
 import {useState} from 'react';
 import {Container} from 'react-bootstrap';
 
-const ItemCount = ({stock,inicial=1}) => {
+const ItemCount = ({stock,inicial=1,onAdd}) => {
 
     let [estado,setEstado]=useState(inicial)
 
@@ -19,16 +19,16 @@ const ItemCount = ({stock,inicial=1}) => {
     }
     
     const handleAgregarAlCarrito = () => {
+          onAdd(estado);
           alert('Agregaste al carrito ' + estado + ' producto(s)' );
     }
 
     return (
         <>
         <Container as="main">
-            <p>Mi Contador va: {estado}</p>
             <button onClick={handleSumar}>Sumar</button>
             <button onClick={handleRestar}>Restar</button>
-            <button onClick={handleAgregarAlCarrito}>Agregar al carrito</button>
+            <button disabled= {number===0} onClick={handleAgregarAlCarrito}>Agregar al carrito</button>
         </Container>
         </>
     );
