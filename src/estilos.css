@@ -7,7 +7,7 @@
 }
 
 html, body, #root{
-    height:100vh;
+    height:150vh;
 }
 
 #root{
@@ -15,22 +15,23 @@ html, body, #root{
     flex-direction: column;
 }
 
-#layout-header{
+.header{
     display:flex;
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem 1rem;
     background-color: orangered;
     box-shadow: 0 5px 4px rgba(0, 0, 0, 0.5);
-    
 }
 
 .header__title{
     font-family: 'Slackey', cursive;
     color:rgb(10, 195, 241);
+    text-decoration: none;
+  
 }
 
-Link{  
+.nav__link{  
     text-decoration: none;
     color:yellow;
     font-size: 1.5rem;
@@ -40,7 +41,7 @@ Link{
     margin-left: 2rem;
 }
 
-body{
+.estiloMain{
     background-color: greenyellow;
 }
 
@@ -54,6 +55,26 @@ main h2{
     font-family: 'Slackey', cursive;
     text-align: center;
     margin-top: 2rem;
+}
+
+.estiloItemListContainer{
+    background-color:greenyellow;
+    display:flex;
+    justify-content: center;
+}
+
+.CardListILC{
+    display: flex;
+}
+
+.buttonIL{
+    position: absolute;
+    bottom:-10px; 
+    left: 10px;
+    background-color:lightblue;
+    width: 100px;
+    height: 30px;    
+
 }
 
 #main-footer{
@@ -81,3 +102,4 @@ main h2{
 .cardBody{
     margin-left: 10rem;
 }
+

@@ -3,7 +3,7 @@ import products from '../../database/products.js';
 import ItemList from './ItemList.js';
 import {toast} from 'react-toastify';
 import {useParams} from 'react-router-dom';
-import {Spinner} from '../Spinner'
+import Spinner from '../Spinner'
 
 function getProductos(idcategoria){
     return new Promise ((resolve)=>{
@@ -23,14 +23,11 @@ function ItemListContainer () {
     const {idcategoria}= useParams()
     const [loading,setLoading]=useState(true)
 
-    useEffect(()=>{
-        setLoading(true)        
+    useEffect(()=>{      
         toast.info("Trayendo productos...")
-        getProductos(idcategoria)
-        pedido
-          .then ((respuestaPromise => setProductos(respuestaPromise)) => {
-            toast.dismiss(),
-            setProductos(resultado)
+        getProductos(idcategoria).then(function(respuestaPromise) {
+            setProductos(respuestaPromise);
+            toast.dismiss()
         })
         .catch((error)=>{
             toast.error("Error al traer los productos")
@@ -40,15 +37,17 @@ function ItemListContainer () {
         })
     },[idcategoria])
 
-    if (loading){
         return (
-            <div style={{marginTop: '20px'}}>
-            {loading ? <Spinner /> : <ItemList productos={productos}/> }  
-        </div>
-         
-        )
+            <div class="container" className="estiloItemListContainer">
+                <div style={{marginTop: '50px'}}>
+                   {loading ? <Spinner /> : <ItemList productos={productos}/> }  
+                </div>
+            </div>
+                   
+            
+         )
         
     }
-}
+
 
 export default ItemListContainer

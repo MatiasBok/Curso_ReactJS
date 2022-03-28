@@ -1,16 +1,22 @@
-import React from 'react';
-import Card from 'react-bootstrap/Card'
-import ItemCount from '../ItemCount'
+import {useContext, useState} from 'react';
+import 'rc-rate/assets/index.css';
+import Card from 'react-bootstrap/Card';
+import ItemCount from '../ItemCount';
+import {Link} from 'react-router-dom';
+import contexto from '../Context/MiContexto'
 
 const ItemDetail = ({producto}) => {
   const [estado,setEstado] = useState(0)
-  let navigate = useNavigate();
-
+  const {addItem} = useContext(contexto);
+  
   const onAdd = (estado) => {
    setEstado (estado); 
-   setTimeout(() =>{
+   addItem(producto,estado)
+   /*setTimeout(() =>{
      navigate('/carrito');
-   }, 2000);
+   }, 2000);*/
+
+   addItem(producto,estado);
   };
 
   return( 
@@ -22,7 +28,7 @@ const ItemDetail = ({producto}) => {
                 <p>${producto.precio}</p>
                 <Card.Text> {producto.description}</Card.Text>
                 <div>
-                {cantidad === 0 ? (
+                {estado === 0 ? (
                     <ItemCount stock={producto.stock} onAdd={onAdd}/>
                   ) : (
                     <Link to="/Carrito">Ir al Carrito</Link>)

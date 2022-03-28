@@ -18,7 +18,7 @@ const ItemCount = ({stock,inicial=1,onAdd}) => {
         }
     }
     
-    const handleAgregarAlCarrito = () => {
+    const handleConfirmar = () => {
           onAdd(estado);
           alert('Agregaste al carrito ' + estado + ' producto(s)' );
     }
@@ -26,9 +26,10 @@ const ItemCount = ({stock,inicial=1,onAdd}) => {
     return (
         <>
         <Container as="main">
+            <h5>{estado}</h5>
             <button onClick={handleSumar}>Sumar</button>
             <button onClick={handleRestar}>Restar</button>
-            <button disabled= {number===0} onClick={handleAgregarAlCarrito}>Agregar al carrito</button>
+            <button onClick={handleConfirmar}>Confirmar cantidad</button>
         </Container>
         </>
     );

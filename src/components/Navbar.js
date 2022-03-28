@@ -1,26 +1,31 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React, {useContext} from 'react';
+import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget.js';
-import {Nav, Container} from 'react-bootstrap'
+import {contexto} from './Context/MiContexto';
+import {Nav, Navbar as NavbarBS, Container} from 'react-bootstrap'
 
 const Navbar = () => {
+
+   const {calcularCantidad} = useContext(contexto);
+
     return (
-        <Navbar bg="light" expand="lg">
+        <NavbarBS expand="lg">
             <Container>
-                <Navbar.Brand href="#home">Home</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
+                <NavbarBS.Brand href="#home">Home</NavbarBS.Brand>
+                <NavbarBS.Toggle aria-controls="basic-navbar-nav" />
+                <NavbarBS.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                     <Link to="/categoria/Indumentaria" className="nav__link">Indumentaria</Link>   
                     <Link to="/categoria/Calzado" className="nav__link">Calzado</Link>
                     <Link to="/categoria/Raquetas" className="nav__link">Raquetas</Link>  
                 </Nav>
-                </Navbar.Collapse>
+                </NavbarBS.Collapse>
             </Container>
             <Link to="/carrito">
                 <CartWidget />
+                {calcularCantidad()}
             </Link>
-        </Navbar>
+        </NavbarBS>
        /* <nav className="nav">
         </nav> */
     )
