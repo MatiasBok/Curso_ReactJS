@@ -10,13 +10,13 @@ const Carrito = () => {
   }
 
   return (
-    <div>
-        <h3>Carrito</h3>
+    <div className='carrito'>
+        <h3>Tu carrito</h3>
         {carrito.map(producto => (
           <div key={producto.id}>
               <p>{producto.nombre}</p>
               <p>{producto.estado} x {producto.precio}</p>
-              <p>Total Parcial: {producto.cantidad * producto.precio}</p>
+              <strong>Total Parcial: ${producto.cantidad * producto.precio}</strong>
               <button onClick={handleClick}>BORRAR</button>
           </div>
         ))}

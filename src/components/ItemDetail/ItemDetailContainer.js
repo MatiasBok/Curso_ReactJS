@@ -36,7 +36,7 @@ useEffect (() =>{
     },[idproducto]);
 
  return (
-         <div style={{marginTop: '20px'}}>
+         <div className='classIDC' style={{marginTop: '20px'}}>
          {loading ? <Spinner /> :<ItemDetail producto={producto}/>}
          </div>
         )

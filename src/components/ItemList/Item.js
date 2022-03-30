@@ -1,17 +1,16 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-
+import {Link} from  'react-router-dom'
 
 export default function Item({producto}) {
   return(      
-        <Card className='CardListILC'style={{ width: '20rem' }}>
+        <Card className='CardI'style={{ width: '18%'}}>
             <Card.Img variant="top" src={producto.imageURL} alt={producto.nombre}/>
-            <Card.Body>
-                <Card.Title>{producto.nombre}</Card.Title>
+            <Card.Body className='BodyI'>
+                <Card.Title className='titleCardIL'>{producto.nombre}</Card.Title>
                 <p>${producto.precio}</p>
-                <small>Stock: {producto.stock}</small>
                 <strong>{producto.marca}</strong>
-                <button className="buttonIL"to={`/producto/${producto.id}`}>Ver detalle</button>            
+                <Link className="buttonIL"to={`/producto/${producto.id}`}>Ver detalle</Link>            
             </Card.Body>
         </Card>
           

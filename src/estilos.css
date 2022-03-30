@@ -43,6 +43,11 @@ html, body, #root{
 
 .estiloMain{
     background-color: greenyellow;
+    padding: 10px; 
+}
+
+.estiloTitulo{
+    margin-bottom: 50px; 
 }
 
 main{
@@ -57,25 +62,38 @@ main h2{
     margin-top: 2rem;
 }
 
+/******ITEMLISTCONTAINER********/
 .estiloItemListContainer{
     background-color:greenyellow;
     display:flex;
-    justify-content: center;
+    justify-content:space-around;
+    width:100%;
 }
 
-.CardListILC{
+/********ITEM*******/
+
+.CardI{
     display: flex;
+    margin: 10px;  
+}
+
+.BodyI{
+    display:flex;
+    flex-direction: column;
+    justify-content:left;
+    align-items:flex-start;
+}
+
+.titleCardIL{
+    font-size: 0.1rem;
 }
 
 .buttonIL{
-    position: absolute;
-    bottom:-10px; 
-    left: 10px;
+    position: relative;      
     background-color:lightblue;
-    width: 100px;
-    height: 30px;    
-
 }
+
+/******FOOTER*******/
 
 #main-footer{
     background-color:orangered;
@@ -85,21 +103,38 @@ main h2{
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.cardDetails{
-    width:100%; 
-    display:flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    padding-top: 20px;
     
 }
 
-.cardImagen{
-    width:50%;
+/********ITEMDETAILSCONTAINER*********/
+
+.classIDC{
+    background-color:green;
+    width:100%;
 }
 
-.cardBody{
-    margin-left: 10rem;
+/*******ITEMDETAIL********/
+
+.cardDetails{
+    width:40%; 
+    display: flex;
 }
+
+.cardBodyID{
+    display:flex;
+    flex-direction: column;
+
+}
+
+.cardImagenID{
+    width:10%;
+}
+
+/********CARRITO********/
+.carrito{
+    
+ 
+}
+
 

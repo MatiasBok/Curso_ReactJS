@@ -12,26 +12,27 @@ const MiProvider = ({children}) => {
         return carrito.some(products => products.id === id);
     }
 
-    const addItem = (producto,estado) => {
+    const addItem = (producto,cantidad) => {
         const copiaCarrito = [...carrito];
-        const itemAlCarrito = [...producto, estado];
+        const itemAlCarrito = {...producto, cantidad};
         
         if(isInCart(producto.id)){
             let index = copiaCarrito.findIndex (products => products.id === producto.id);
-            copiaCarrito[index].estado += estado;
+            copiaCarrito[index].cantidad += cantidad;
+            setCarrito(copiaCarrito);
         }else{
             copiaCarrito.push(itemAlCarrito);
             setCarrito(copiaCarrito);
         }
     }
 
-    const removeItem = (producto,estado) => {
+    const removeItem = (producto,cantidad) => {
         const copiaCarrito = [...carrito];
-        const itemDelCarrito = [...producto, estado];
+        const itemDelCarrito = {...producto, cantidad};
         
         if(isInCart(producto.id)){
             let index = copiaCarrito.findIndex (products => products.id === producto.id);
-            copiaCarrito[index].estado -= estado;
+            copiaCarrito[index].cantidad -= cantidad;
         }else{
             copiaCarrito.pop(itemDelCarrito);
             setCarrito(copiaCarrito);
@@ -39,14 +40,14 @@ const MiProvider = ({children}) => {
     }
 
     const calcularCantidad = () => {
-        let estado = 0;
-        carrito.forEach(products => estado = products.estado)
-        return estado;
+        let cantidad = 0;
+        carrito.forEach(products => cantidad = products.cantidad)
+        return cantidad;
     };
 
     const calcularPrecioTotal = () => {
         let precioTotal = 0;
-        carrito.forEach(products => products.estado * products.precio)
+        carrito.forEach(products => products.cantidad * products.precio)
         return precioTotal
     }
 

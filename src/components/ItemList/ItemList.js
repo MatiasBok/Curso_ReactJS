@@ -3,19 +3,18 @@ import Item from './Item'
 
 export default function ItemList ({productos}) {
     return (
-        <div class="row">
-            <div class="col-md-4">
-                <section>                   
-                    {productos.map(miProducto=>{
-                        return(                            
-                                <Item
-                                    key={miProducto.id}
-                                    producto={miProducto}
-                                />
+        <div className="container rowItemList">
+            <div className="row rowItemList">                  
+                {productos.map(miProducto=>{
+                    return(                            
+                        <Item
+                            class="col-md-4"
+                            key={miProducto.id}
+                            producto={miProducto}
+                        />
                         )
-                        })}  
-                 </section>
-              </div>
+                        })} 
+            </div> 
         </div> 
                     
     )

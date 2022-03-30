@@ -3,8 +3,8 @@ import { useState } from "react";
 function Spinner() {
     
     return (      
-          <div class="spinner-border text-primary"  role="status">
-              <span class="visually-hidden">Loading...</span>
+          <div className="spinner-border text-primary"  role="status">
+              <span className="visually-hidden">Cargando...</span>
           </div>        
     );
   }
