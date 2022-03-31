@@ -6,7 +6,7 @@ const Main = ({nombre,edad}) => {
    return (
         <Container className= "estiloMain" as= "main" fluid>
             <h2 className='estiloTitulo'>Bienvenido {nombre} al Mercado Online de la Academia!</h2>
-            {/*<h3>Tienes {edad} puedes ingresar!</h3>*/}        
+            {/*<h3>Tienes {edad} puedes ingresar!</h3>*/}           
         </Container>
     );
 }

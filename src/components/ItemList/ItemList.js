@@ -1,11 +1,11 @@
 import React from 'react';
 import Item from './Item'
 
-export default function ItemList ({productos}) {
+export default function ItemList ({producto}) {
     return (
         <div className="container rowItemList">
             <div className="row rowItemList">                  
-                {productos.map(miProducto=>{
+                {producto.map(miProducto=>{
                     return(                            
                         <Item
                             class="col-md-4"

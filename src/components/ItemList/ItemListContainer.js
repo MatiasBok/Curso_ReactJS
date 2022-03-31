@@ -1,53 +1,57 @@
 import React, {useState, useEffect} from 'react';
-import products from '../../database/products.js';
 import ItemList from './ItemList.js';
 import {toast} from 'react-toastify';
-import {useParams} from 'react-router-dom';
-import Spinner from '../Spinner'
+import Spinner from '../Spinner';
+import {db} from '../firebase';
+import {collection, getFirestore, getDocs, query, where} from "firebase/firestore";
 
-function getProductos(idcategoria){
-    return new Promise ((resolve)=>{
-        setTimeout(function(){
-            if (!idcategoria){
-                resolve(products)
-            }else{
-                let productos = products.filter(productos => productos.categoria === idcategoria);
-            resolve(productos)
-            }
-        },2000);
-    })
-}
+const ItemListContainer = () => {
 
-function ItemListContainer () {
-    const [productos,setProductos] = useState([]);
-    const {idcategoria}= useParams()
-    const [loading,setLoading]=useState(true)
+    const [productos,setProductos] = useState([]);    
+    const [loading,setLoading]=useState(true);
 
-    useEffect(()=>{      
+  useEffect(()=> {
         toast.info("Trayendo productos...")
-        getProductos(idcategoria).then(function(respuestaPromise) {
-            setProductos(respuestaPromise);
-            toast.dismiss()
-        })
-        .catch((error)=>{
-            toast.error("Error al traer los productos")
-        })
-        .finally(()=>{
+        const db = getFirestore(); 
+        const productosCollection = collection(db,"productos");
+        getDocs(productosCollection).then((snapshot)=>{
+            setProductos(snapshot.docs.map((doc) => ({id:doc.id, ...doc.data()})));
             setLoading(false)
-        })
-    },[idcategoria])
+            toast.dismiss()
+        })    
+        .catch(()=>{
+         toast.error("Error al traer los productos")
+      });   
+    },[]);
+
+
+   /* useEffect(() => {
+        toast.info("Trayendo productos...")
+        const db = getFirestore();
+        
+        const q= query(collection(db,"productos"), where("categoria","==","true"));
+        getDocs(q).then((snapshot) =>{
+            if (snapshot.size === 0){
+                setLoading(false)
+                toast.dismiss()
+            } else {
+                setProductos(snapshot.docs.map((doc) => ({id:doc.id, ...doc.data()})));
+              }
+        })    
+            .catch(()=>{
+            toast.error("Error al traer los productos")
+      });   
+
+        },[]);*/
+            
 
         return (
             <div class="container" className="estiloItemListContainer">
                 <div style={{marginTop: '50px'}}>
-                   {loading ? <Spinner /> : <ItemList productos={productos}/> }  
+                   {loading ? <Spinner /> : <ItemList producto={productos}/> }  
                 </div>
-            </div>
-                   
-            
-         )
-        
+            </div>    
+         )       
     }
-
 
 export default ItemListContainer

@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import ItemCount from '../ItemCount';
 import {Link} from 'react-router-dom';
 import {contexto} from '../Context/MiContexto'
+import {db} from '../firebase';
 
 const ItemDetail = ({producto}) => {
   const [estado,setEstado] = useState(0)
