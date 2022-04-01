@@ -4,41 +4,50 @@ import {useParams} from 'react-router-dom';
 import Spinner from '../Spinner'
 import { toast } from 'react-toastify';
 import {db} from '../firebase';
+import {collection, getDocs, query, where} from "firebase/firestore";
 
-function getProduct(idproducto){
+const ItemDetailContainer = () => {
+
+    const [producto,setProducto] = useState([]);
+    const {idProducto} = useParams();
+    const [loading,setLoading]=useState(true)
+
+function getProduct(idProducto){
     return new Promise ((resolve)=>{
         setTimeout(function(){
-           let productos = db.find(productos => productos.id === Number(idproducto))
-           resolve(productos)
-        },2000);
+           let producto = db.find(producto => producto.id === Number(idProducto))
+           resolve(producto)
+        },3000);
     })
 }
 
-function ItemDetailContainer(){
-    const [producto,setProducto] = useState([]);
-    const {idproducto} = useParams();
-    const [loading,setLoading]=useState(true)
+useEffect(()=> {
+    
+    const productosCollection = collection(db,"productos");
+    const filtro= query(productosCollection, where("id","==",idProducto));
+    const pedido = getDocs(filtro);
 
-
-useEffect (() =>{ 
-        toast.info("Trayendo detalles del producto...")
-        getProduct(idproducto).then(function(respuestaPromise) {
-            setProducto(respuestaPromise)
-            toast.dismiss()
-        })
+    pedido        
+        .then((res)=>{
+            setProducto(res.docs[0].data());
+            toast.info("Trayendo detalles del producto...")
+        })    
         .catch(()=>{
-            toast.error("Error al traer el detalle del producto")
-        })
-        .finally(()=>{
+         toast.error("Error al traer el detalle del producto")
+       })
+        .finally(() => {
             setLoading(false)
         })
-    },[idproducto]);
 
- return (
+    },[idProducto])       
+
+
+  return (
          <div className='classIDC' style={{marginTop: '20px'}}>
          {loading ? <Spinner /> :<ItemDetail producto={producto}/>}
          </div>
         )
 }
+
 
 export default ItemDetailContainer;

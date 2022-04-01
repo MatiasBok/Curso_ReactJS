@@ -1,56 +1,65 @@
 import React, {useState, useEffect} from 'react';
+import {useParams} from 'react-router-dom';
 import ItemList from './ItemList.js';
 import {toast} from 'react-toastify';
 import Spinner from '../Spinner';
 import {db} from '../firebase';
-import {collection, getFirestore, getDocs, query, where} from "firebase/firestore";
+import {collection, getDocs, query, where,} from "firebase/firestore";
 
 const ItemListContainer = () => {
 
     const [productos,setProductos] = useState([]);    
-    const [loading,setLoading]=useState(true);
+    const [loading,setLoading] = useState(true);
+    const [idCategoria] =  useParams();
 
   useEffect(()=> {
-        toast.info("Trayendo productos...")
-        const db = getFirestore(); 
+
+    if(!idCategoria){
+
         const productosCollection = collection(db,"productos");
-        getDocs(productosCollection).then((snapshot)=>{
-            setProductos(snapshot.docs.map((doc) => ({id:doc.id, ...doc.data()})));
+        const pedido = getDocs(productosCollection); 
+    
+    pedido    
+        .then((res)=>{
+            setProductos(res.docs.map(doc => doc.data()));
+            toast.info("Trayendo productos...")})      
+        .catch(()=>{
+            toast.error("Error al traer el detalle del producto")
+        })
+        .finally(() => {
             setLoading(false)
-            toast.dismiss()
+        })
+
+    }else{
+        const productosCollection = collection(db,"productos");
+        const filtro= query(productosCollection, where("categoria","==",idCategoria));
+        const pedido = getDocs(filtro);
+
+    pedido        
+        .then((res)=>{
+            setProductos(res.docs.map(doc => doc.data()));
+            toast.info("Trayendo detalles del producto...")
         })    
         .catch(()=>{
-         toast.error("Error al traer los productos")
-      });   
+         toast.error("Error al traer el detalle del producto")
+       })
+        .finally(() => {
+            setLoading(false)
+        })
+        
+    } 
+  
     },[]);
 
 
-   /* useEffect(() => {
-        toast.info("Trayendo productos...")
-        const db = getFirestore();
-        
-        const q= query(collection(db,"productos"), where("categoria","==","true"));
-        getDocs(q).then((snapshot) =>{
-            if (snapshot.size === 0){
-                setLoading(false)
-                toast.dismiss()
-            } else {
-                setProductos(snapshot.docs.map((doc) => ({id:doc.id, ...doc.data()})));
-              }
-        })    
-            .catch(()=>{
-            toast.error("Error al traer los productos")
-      });   
-
-        },[]);*/
-            
-
-        return (
+    return (
+            <>
             <div class="container" className="estiloItemListContainer">
                 <div style={{marginTop: '50px'}}>
                    {loading ? <Spinner /> : <ItemList producto={productos}/> }  
                 </div>
             </div>    
+            </>
          )       
     }
 

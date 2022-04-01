@@ -1,5 +1,8 @@
+import { serverTimestamp } from 'firebase/firestore';
 import {useContext} from 'react'; 
 import {contexto} from './Context/MiContexto'
+import {db} from '../firebase';
+import {collection, adDoc, query, where,} from "firebase/firestore";
 
 const Carrito = () => {
 
@@ -9,17 +12,32 @@ const Carrito = () => {
     
   }
 
+  const terminarCompra=() => {
+    const orden = {
+      comprador : {
+        nombre:"Matias",
+        telefono:"+5491123456789",
+        email: "matias@hotmail.com"
+      },
+      items: carrito,
+      date: serverTimestamp(),
+      total:total     }
+  }
+
+  const vendidosCollection = collection(db,"vendidos");
+
   return (
     <div className='carrito'>
-        <h3>Tu carrito</h3>
         {carrito.map(producto => (
           <div key={producto.id}>
               <p>{producto.nombre}</p>
-              <p>{producto.estado} x {producto.precio}</p>
-              <strong>Total Parcial: ${producto.cantidad * producto.precio}</strong>
+              <p>{producto.estado} x {producto.precio}</p>              
               <button onClick={handleClick}>BORRAR</button>
+              <strong>Total: ${producto.cantidad * producto.precio}</strong>
           </div>
         ))}
+        <p>Total: ${total}</p>
+        <button onClick= {terminarCompra}>Terminar la compra</button>
     </div>
   )
 }
