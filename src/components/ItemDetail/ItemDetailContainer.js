@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import ItemDetail from './ItemDetail.js';
 import {useParams} from 'react-router-dom';
+import Main from '../Main';
 import Spinner from '../Spinner'
 import { toast } from 'react-toastify';
-import {db} from '../firebase';
+import {db} from '../../firebase';
 import {collection, getDocs, query, where} from "firebase/firestore";
 
 const ItemDetailContainer = () => {
@@ -12,25 +13,17 @@ const ItemDetailContainer = () => {
     const {idProducto} = useParams();
     const [loading,setLoading]=useState(true)
 
-function getProduct(idProducto){
-    return new Promise ((resolve)=>{
-        setTimeout(function(){
-           let producto = db.find(producto => producto.id === Number(idProducto))
-           resolve(producto)
-        },3000);
-    })
-}
-
 useEffect(()=> {
     
     const productosCollection = collection(db,"productos");
-    const filtro= query(productosCollection, where("id","==",idProducto));
+    const filtro= query(productosCollection, where("id","==",Number(idProducto)));
     const pedido = getDocs(filtro);
+    toast.info("Trayendo detalles del producto...")
 
     pedido        
         .then((res)=>{
             setProducto(res.docs[0].data());
-            toast.info("Trayendo detalles del producto...")
+            toast.dismiss();
         })    
         .catch(()=>{
          toast.error("Error al traer el detalle del producto")
@@ -43,9 +36,12 @@ useEffect(()=> {
 
 
   return (
-         <div className='classIDC' style={{marginTop: '20px'}}>
+        <>
+         <Main title="Detalles del producto" />
+         <div className='classIDC'>
          {loading ? <Spinner /> :<ItemDetail producto={producto}/>}
          </div>
+        </>
         )
 }
 

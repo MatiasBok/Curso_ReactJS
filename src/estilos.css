@@ -10,11 +10,6 @@ html, body, #root{
     height:150vh;
 }
 
-#root{
-    display:flex;
-    flex-direction: column;
-}
-
 .header{
     display:flex;
     align-items: center;
@@ -36,6 +31,17 @@ html, body, #root{
     color:yellow;
     font-size: 1.5rem;
 }
+
+.me-auto{
+    justify-content: center;
+    align-items:baseline;
+}
+
+/********CARRITO********/
+.material-icons{
+    width: 70%;
+    color: black;
+    }
 
 #layout-header nav a{
     margin-left: 2rem;
@@ -72,9 +78,9 @@ main h2{
 
 /********ITEM*******/
 
-.CardI{
-    display: flex;
-    margin: 10px;  
+.CardI{    
+    margin-left: 20px;  
+    margin-bottom: 40px; 
 }
 
 .BodyI{
@@ -107,34 +113,82 @@ main h2{
     
 }
 
-/********ITEMDETAILSCONTAINER*********/
-
-.classIDC{
-    background-color:green;
+/********ITEMDETAILCONTAINER*********/
+div.classIDC{
     width:100%;
+    display:flex;
 }
 
 /*******ITEMDETAIL********/
 
 .cardDetails{
-    width:40%; 
-    display: flex;
+    width:100%;   
+    display:flex;
 }
 
 .cardBodyID{
+    width:30%;
     display:flex;
     flex-direction: column;
-
 }
 
 .cardImagenID{
-    width:10%;
+    width:40%;
+    margin-top:40px;
+    margin-left:30px;
 }
 
-/********CARRITO********/
+/***********CARRITO**********/
 .carrito{
-    
- 
+    margin-left: 20px;
 }
+
+.carritoNombre{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.carritoInfo{
+    display:flex; 
+    margin-bottom:30px;
+    margin-top: 30px;
+    margin-left:20px;
+}
+
+.buttonBorrar{
+    width:8%;
+    margin-bottom: 20px;
+}
+
+.buttonTerminar{
+    width:15%;
+    margin-top: 20px;
+}
+
+.imgCarrito{
+    width:30%;
+    margin-top:20px;
+}
+
+.carritoDetalles{
+    width:100%;
+    margin-left: 50px;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 

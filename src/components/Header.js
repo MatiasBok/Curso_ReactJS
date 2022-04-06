@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import Navbar from './Navbar.js';
-import {contexto} from './Context/MiContexto'
+import {contexto} from '../Context/MiContexto'
 
 const Header = () => {
 

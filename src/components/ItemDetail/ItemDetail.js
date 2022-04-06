@@ -3,7 +3,13 @@ import 'rc-rate/assets/index.css';
 import Card from 'react-bootstrap/Card';
 import ItemCount from '../ItemCount';
 import {Link} from 'react-router-dom';
-import {contexto} from '../Context/MiContexto'
+import {contexto} from '../../Context/MiContexto'
+import {
+  MDBCarousel,
+  MDBCarouselInner,
+  MDBCarouselItem,
+  MDBCarouselElement,
+} from 'mdb-react-ui-kit';
 
 
 const ItemDetail = ({producto}) => {
@@ -16,8 +22,17 @@ const ItemDetail = ({producto}) => {
   };
 
   return( 
-       <Card className='cardDetails'>
-            <Card.Img className='cardImagenID'variant="top" src={producto.imageURL} alt={producto.nombre}/>
+       <div className="cardDetails">
+         <MDBCarousel showControls>
+            <MDBCarouselInner>
+              <MDBCarouselItem className='active'>
+              <MDBCarouselElement className='cardImagenID' src={producto.imageURL} alt={producto.nombre}/>
+              </MDBCarouselItem>
+              <MDBCarouselItem>
+                <MDBCarouselElement className='cardImagenID' src={producto.imageURL2} alt={producto.nombre} />
+              </MDBCarouselItem>
+            </MDBCarouselInner>
+          </MDBCarousel>
             <Card.Body className='cardBodyID'>
                 <Card.Title>{producto.nombre}</Card.Title>
                 <strong>{producto.marca}</strong>
@@ -31,7 +46,7 @@ const ItemDetail = ({producto}) => {
                 }
                 </div>
             </Card.Body>
-        </Card>
+        </div>
   )}
 
 export default ItemDetail

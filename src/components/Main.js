@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Container} from 'react-bootstrap';
 
-const Main = ({nombre,edad}) => {
+const Main = ({title}) => {
+
+useEffect(()=>{
+    document.title= "Tienda Crazy4Tennis";
+},[])
  
    return (
         <Container className= 'estiloMain' as= "main" fluid>
-            <h2 className='estiloTitulo'>Bienvenido {nombre} al e-commerce de la academia </h2>
-            {/*<h3>Tienes {edad} puedes ingresar!</h3>*/}           
+            <h2 className='estiloTitulo'>Bienvenidos al e-commerce de la Academia</h2> 
+            <h3>{title}</h3>       
         </Container>
     );
 }

@@ -26,22 +26,19 @@ const MiProvider = ({children}) => {
         }
     }
 
-    const removeItem = (producto,cantidad) => {
+    const removeItem = (productoID) => {
         const copiaCarrito = [...carrito];
-        const itemDelCarrito = {...producto, cantidad};
-        
-        if(isInCart(producto.id)){
-            let index = copiaCarrito.findIndex (products => products.id === producto.id);
-            copiaCarrito[index].cantidad -= cantidad;
-        }else{
-            copiaCarrito.pop(itemDelCarrito);
+                
+        if(isInCart(productoID)){
+            let index = copiaCarrito.findIndex (products => products.id === productoID);
+            copiaCarrito.splice(index,1);
             setCarrito(copiaCarrito);
         }
     }
 
     const calcularCantidad = () => {
         let cantidad = 0;
-        carrito.forEach(products => cantidad = products.cantidad)
+        carrito.forEach(products => cantidad += products.cantidad)
         return cantidad;
     };
 

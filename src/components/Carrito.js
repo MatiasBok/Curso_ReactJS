@@ -1,17 +1,19 @@
 import { serverTimestamp } from 'firebase/firestore';
-import {useContext} from 'react'; 
-import {contexto} from './Context/MiContexto'
+import {useContext, useEffect} from 'react'; 
+import Main from './Main';
+import {contexto} from '../Context/MiContexto'
 import {db} from '../firebase';
-import {collection, adDoc, query, where,} from "firebase/firestore";
+import {collection} from "firebase/firestore";
 
 const Carrito = () => {
 
-  const {carrito, total} = useContext(contexto)
+  const {carrito, total, removeItem} = useContext(contexto)
 
-  const handleClick =() => {
-    
-  }
+  useEffect(()=>{
+    document.title="Tu Carrito"
+  },[])
 
+  
   const terminarCompra=() => {
     const orden = {
       comprador : {
@@ -27,20 +29,27 @@ const Carrito = () => {
   const vendidosCollection = collection(db,"vendidos");
 
   return (
-    <div className='carrito'>
-        {carrito.map(producto => (
-          <div key={producto.id}>
-              <p>{producto.nombre}</p>
-              <p>{producto.estado} x {producto.precio}</p>              
-              <button onClick={handleClick}>BORRAR</button>
-              <strong>Total: ${producto.cantidad * producto.precio}</strong>
-          </div>
-        ))}
-        <p>Total: ${total}</p>
-        <button onClick= {terminarCompra}>Terminar la compra</button>
-    </div>
-  )
+    <>
+      <Main title="Tu Carrito"/>
+      <div className='carrito'>
+          {carrito.map(producto => (
+            <div className= "carritoInfo" key={producto.id}>
+            <img className="imgCarrito" src={producto.imageURL} alt={producto.nombre}></img>
+               <div className="carritoDetalles">
+                  <strong className="carritoNombre">{producto.nombre}</strong>
+                  <p>Cantidad: {producto.cantidad}  </p> 
+                  <p>Precio unitario: ${producto.precio} </p>             
+                  <button className='buttonBorrar'onClick={()=>removeItem(producto.id)}>BORRAR</button>
+                  <strong>Total: ${producto.cantidad * producto.precio}</strong>
+                  <button className='buttonTerminar' onClick= {terminarCompra}>Terminar la compra</button>
+               </div>
+            </div> 
+          ))},         
+      </div>
+    </>
+    )
 }
+
 
 export default Carrito
 
