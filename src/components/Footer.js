@@ -6,7 +6,7 @@ const Footer = () => {
     <footer id="main-footer" className="estiloFooter">
         <p>&copy; Copyright 2022 - Matias Bökenhans</p>
         <p>Todos los derechos reservados</p>
-        <Navbar />
+        <Navbar id="navbarFooter"/>
     </footer>
   )
 }

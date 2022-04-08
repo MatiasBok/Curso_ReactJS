@@ -42,14 +42,21 @@ const MiProvider = ({children}) => {
         return cantidad;
     };
 
-    const calcularPrecioTotal = () => {
-        let precioTotal = 0;
+    const calcularTotalParcial = () => {
+        let TotalParcial = 0;
         carrito.forEach(products => products.cantidad * products.precio)
-        return precioTotal
+        return TotalParcial
+    }
+
+    const calcularPrecioCompraTotal = () => {
+        let precioCompraTotal = 0;
+        carrito.forEach(products => products.cantidad * products.TotalParcial)
+        return precioCompraTotal
     }
 
     const clear =() => {
         setCarrito([]);
+        setTotal(0)
         setEstado(0)
     }
 
@@ -59,7 +66,9 @@ const MiProvider = ({children}) => {
         removeItem: removeItem,
         isInCart: isInCart,
         calcularCantidad: calcularCantidad,
-        calcularPrecioTotal: calcularPrecioTotal,
+        total:total,
+        calcularTotalParcial: calcularTotalParcial,
+        calcularPrecioCompraTotal: calcularPrecioCompraTotal,
         clear: clear,
     }
 

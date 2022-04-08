@@ -20,7 +20,6 @@ const ItemCount = ({stock,inicial=1,onAdd}) => {
     
     const handleConfirmar = () => {
           onAdd(estado);
-          alert('Agregaste al carrito ' + estado + ' producto(s)' );
     }
 
     return (

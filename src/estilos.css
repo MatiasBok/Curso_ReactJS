@@ -1,13 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Slackey&display=swap');
 
-* {
+*{
     padding: 0;
     margin:0;
-    box-sizing:border-box;
-}
-
-html, body, #root{
-    height:150vh;
 }
 
 .header{
@@ -17,13 +12,13 @@ html, body, #root{
     padding: 0.5rem 1rem;
     background-color: orangered;
     box-shadow: 0 5px 4px rgba(0, 0, 0, 0.5);
+    height:100px;
 }
 
 .header__title{
     font-family: 'Slackey', cursive;
     color:rgb(10, 195, 241);
     text-decoration: none;
-  
 }
 
 .nav__link{  
@@ -36,6 +31,9 @@ html, body, #root{
     justify-content: center;
     align-items:baseline;
 }
+
+/********SPINNER*********/
+
 
 /********CARRITO********/
 .material-icons{
@@ -55,10 +53,10 @@ html, body, #root{
 .estiloTitulo{
     margin-bottom: 50px; 
 }
+/********MAIN**********/
 
 main{
-    flex-grow: 1;
-    padding:1rem;
+    height:100vh;
 }
 
 main h2{
@@ -69,6 +67,10 @@ main h2{
 }
 
 /******ITEMLISTCONTAINER********/
+.idCategoria{
+    margin-top:10px;
+}
+
 .estiloItemListContainer{
     background-color:greenyellow;
     display:flex;
@@ -99,20 +101,6 @@ main h2{
     background-color:lightblue;
 }
 
-/******FOOTER*******/
-
-#main-footer{
-    background-color:orangered;
-    padding:0.8rem;
-    font-family: 'Slackey', cursive;
-    font-size: 0.8rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    
-}
-
 /********ITEMDETAILCONTAINER*********/
 div.classIDC{
     width:100%;
@@ -140,7 +128,8 @@ div.classIDC{
 
 /***********CARRITO**********/
 .carrito{
-    margin-left: 20px;
+    min-height:60vh;
+    background-color:greenyellow;
 }
 
 .carritoNombre{
@@ -177,6 +166,22 @@ div.classIDC{
     display:flex;
     flex-direction:column;
     justify-content: space-between;
+}
+
+/******FOOTER*******/
+
+#main-footer{
+    background-color:orangered;
+    font-family: 'Slackey', cursive;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 140px;
+    padding-top:15px;
+    padding-bottom:20px;
+    position:absolute;
+    width:100%;
 }
 
 

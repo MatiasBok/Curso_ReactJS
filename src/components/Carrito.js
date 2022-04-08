@@ -3,18 +3,19 @@ import {useContext, useEffect} from 'react';
 import Main from './Main';
 import {contexto} from '../Context/MiContexto'
 import {db} from '../firebase';
-import {collection} from "firebase/firestore";
+import {collection, addDoc} from "firebase/firestore";
+import ItemCount from './ItemCount';
 
 const Carrito = () => {
 
-  const {carrito, total, removeItem} = useContext(contexto)
+  const {carrito, precioTotalParcial, removeItem} = useContext(contexto)
 
   useEffect(()=>{
     document.title="Tu Carrito"
   },[])
 
   
-  const terminarCompra=() => {
+  const terminarCompra= async () => {
     const orden = {
       comprador : {
         nombre:"Matias",
@@ -23,10 +24,13 @@ const Carrito = () => {
       },
       items: carrito,
       date: serverTimestamp(),
-      total:total     }
-  }
+      total: precioTotalParcial()}
+  
 
   const vendidosCollection = collection(db,"vendidos");
+  const ordenDeCompra = await addDoc(vendidosCollection, orden);
+  console.log(ordenDeCompra.id);
+}
 
   return (
     <>
@@ -38,6 +42,7 @@ const Carrito = () => {
                <div className="carritoDetalles">
                   <strong className="carritoNombre">{producto.nombre}</strong>
                   <p>Cantidad: {producto.cantidad}  </p> 
+                  <ItemCount/>
                   <p>Precio unitario: ${producto.precio} </p>             
                   <button className='buttonBorrar'onClick={()=>removeItem(producto.id)}>BORRAR</button>
                   <strong>Total: ${producto.cantidad * producto.precio}</strong>
