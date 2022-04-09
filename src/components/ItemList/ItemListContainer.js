@@ -6,6 +6,7 @@ import Main from '../Main';
 import Spinner from '../Spinner';
 import {db} from '../../firebase';
 import {collection, getDocs, query, where,} from "firebase/firestore";
+import {Routes, Route} from 'react-router-dom';
 
 const ItemListContainer = () => {
 
@@ -60,7 +61,7 @@ const ItemListContainer = () => {
     return (
             <>
             <Main title={idCategoria}/>
-            <div class="container" className="estiloItemListContainer">
+            <div className="container" className="estiloItemListContainer">
                 <div style={{marginTop: '50px'}}>
                  {loading ? <Spinner /> : <ItemList producto={productos}/> }  
                 </div>

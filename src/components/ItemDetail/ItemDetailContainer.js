@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import ItemDetail from './ItemDetail.js';
+import ItemDetail from './ItemDetail';
 import {useParams} from 'react-router-dom';
 import Main from '../Main';
 import Spinner from '../Spinner'

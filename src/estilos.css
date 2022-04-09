@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Slackey&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,200&family=Slackey&display=swap');
 
 *{
     padding: 0;
@@ -110,7 +111,8 @@ div.classIDC{
 /*******ITEMDETAIL********/
 
 .cardDetails{
-    width:100%;   
+    width:100%;
+    height:100vh;   
     display:flex;
 }
 
@@ -127,9 +129,30 @@ div.classIDC{
 }
 
 /***********CARRITO**********/
-.carrito{
-    min-height:60vh;
+.containerCarrito1{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
     background-color:greenyellow;
+}
+
+.containerCarrito2{
+    display:flex;
+    flex-direction:column-reverse;
+
+}
+
+#productosCarrito{
+    padding-top:30px; 
+    background-color: greenyellow;
+}
+
+#tituloProductosCarrito{
+    font-family: 'Kanit', sans-serif;
+    font-size: 3rem;
+    margin-left: 20px;
 }
 
 .carritoNombre{
@@ -146,13 +169,49 @@ div.classIDC{
 }
 
 .buttonBorrar{
-    width:8%;
-    margin-bottom: 20px;
+    width:20%;
+    margin-bottom: 11px;
+    margin-top:10px;
+    margin-right:20px;
+    padding:4px;
+    border-radius:15px;
 }
 
-.buttonTerminar{
+.seguirComprando{
+    border-radius:25px;
+    background-color:green;
+    color:white;
+    text-decoration: none;
+    padding:6px 6px 7px 22px;
+    width:20%;
+   
+}
+
+.botonesProdCarrito{
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+}
+
+.buttonFinalizar{
     width:15%;
-    margin-top: 20px;
+    padding-top: 100px;
+    margin-right:5px;
+    margin-left:5px;
+}
+
+.bg-warning{
+    width:20%;
+    padding-top: 100px;
+    margin-right:5px;
+    margin-left:5px;
+}
+
+.vaciarCarrito{
+    width:15%;
+    padding-top: 100px;
+    margin-right:5px;
+    margin-left:5px;
 }
 
 .imgCarrito{
@@ -166,6 +225,13 @@ div.classIDC{
     display:flex;
     flex-direction:column;
     justify-content: space-between;
+}
+
+.compraTotal{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    margin-right:40px;
 }
 
 /******FOOTER*******/

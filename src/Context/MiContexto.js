@@ -4,6 +4,7 @@ export const contexto = createContext()
 const {Provider} = contexto
 
 const MiProvider = ({children}) => {
+
     const [carrito,setCarrito] = useState ([])
     const[estado, setEstado] = useState(0)
     const[total,setTotal] = useState(false)
@@ -42,19 +43,14 @@ const MiProvider = ({children}) => {
         return cantidad;
     };
 
-    const calcularTotalParcial = () => {
-        let TotalParcial = 0;
-        carrito.forEach(products => products.cantidad * products.precio)
-        return TotalParcial
+    const calcularPrecioTotal = () => {
+        let precioTotal = 0;
+        carrito.forEach((products) => {precioTotal += products.cantidad * products.precio;
+        });
+        return setTotal(precioTotal);
     }
 
-    const calcularPrecioCompraTotal = () => {
-        let precioCompraTotal = 0;
-        carrito.forEach(products => products.cantidad * products.TotalParcial)
-        return precioCompraTotal
-    }
-
-    const clear =() => {
+    const clearCarrito =() => {
         setCarrito([]);
         setTotal(0)
         setEstado(0)
@@ -66,10 +62,8 @@ const MiProvider = ({children}) => {
         removeItem: removeItem,
         isInCart: isInCart,
         calcularCantidad: calcularCantidad,
-        total:total,
-        calcularTotalParcial: calcularTotalParcial,
-        calcularPrecioCompraTotal: calcularPrecioCompraTotal,
-        clear: clear,
+        total: calcularPrecioTotal,
+        clearCarrito: clearCarrito,
     }
 
     return (

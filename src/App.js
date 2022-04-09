@@ -2,20 +2,25 @@ import React from 'react';
 import Header from './components/Header';
 import Footer from "./components/Footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import MiProvider from '../src/Context/MiContexto';
-import Main from './components/Main'
-
-
+import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
+import ItemListContainer from './components/ItemList/ItemListContainer';
+import Carrito from './components/Carrito';
 
 function App() {
     return ( 
         <MiProvider>
              <BrowserRouter>
                 <Header />    
-				<Main />
+				<Routes>
+                    <Route path="/" element={<ItemListContainer component="Home"/>}/>
+                    <Route path="/categoria/:idCategoria" element={<ItemListContainer component=""/>}/>
+                    <Route path="/producto/:idProducto" element={<ItemDetailContainer component="Detalles del producto"/>}/>
+                    <Route path="/carrito" element={<Carrito/>}/>
+                </Routes>
                 <Footer /> 
                 <ToastContainer />
             </BrowserRouter>  
