@@ -1,18 +1,24 @@
 import { serverTimestamp } from 'firebase/firestore';
 import {useContext, useEffect} from 'react'; 
-import Main from './Main';
 import {contexto} from '../Context/MiContexto';
 import {db} from '../firebase';
 import {collection, addDoc} from "firebase/firestore";
-import ItemCount from './ItemCount';
-import {Link} from  'react-router-dom'
+import {Link, useNavigate} from  'react-router-dom';
+import ItemCountCarrito from './ItemCountCarrito';
+
 
 const Carrito = () => {
 
-  const {carrito, clearCarrito, calcularPrecioTotal, addItem, removeItem} = useContext(contexto)
+  const {carrito, clearCarrito, calcularPrecioTotal, removeItem, onAdd} = useContext(contexto)
+  const navigate = useNavigate()
 
   const finalizarCompra= async () => {
     clearCarrito();
+    alert('Muchas gracias por su compra. Redirigiéndote al formulario...');
+    setTimeout (()=>{
+      navigate('/TerminarLaCompra')
+    },3000)
+
     console.log("Se ha vaciado el carrito");
     const orden = {
       comprador : {
@@ -54,8 +60,11 @@ const Carrito = () => {
                           <div className="carritoDetalles">
                               <strong className="carritoNombre">{producto.nombre}</strong>
                               <p>Cantidad: {producto.cantidad}  </p> 
+                              <div>
+                                 <ItemCountCarrito stock={producto.stock} onAdd={onAdd}/>  
+                              </div>
                               <p>Precio unitario: ${producto.precio} </p>             
-                              <strong>Total producto: ${producto.cantidad * producto.precio}</strong>
+                              <strong className="totalProducto">Total producto: ${producto.cantidad * producto.precio}</strong>
                               <div className="botonesProdCarrito">
                                 <button className='buttonBorrar'onClick={()=>removeItem(producto.id)}>BORRAR PRODUCTO</button>
                                 <Link type="button" className="seguirComprando" to="/">Seguir comprando</Link>                              
@@ -63,11 +72,11 @@ const Carrito = () => {
                           </div>
                   </div>                   
               </div>
-            ))},
+            ))}, 
         </div>
             <div className="compraTotal">
-                <p className="mt-3 fs-4 badge bg-warning text-wrap"> Total a abonar: $ {calcularPrecioTotal}</p>
-                <button className='btn btn-success buttonFinalizar' onClick= {finalizarCompra}>Finalizar compra</button>
+                <p className="mt-3 fs-4 badge bg-warning text-wrap" id="totalAPagar"> Total a abonar: $ {calcularPrecioTotal}</p>
+                <button className='btn btn-success buttonFinalizar' onClick={(finalizarCompra)=>navigate("/TerminarLaCompra")}>Finalizar compra</button>
                 <button className='btn btn-danger vaciarCarrito' onClick= {clearCarrito}>Vaciar Carrito</button>
             </div>        
     </div>

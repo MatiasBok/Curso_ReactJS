@@ -8,9 +8,9 @@ useEffect(()=>{
 },[])
  
    return (
-        <Container className= 'estiloMain' as= "main" fluid>
+        <Container className= 'estiloMain' fluid>
             <h2 className='estiloTitulo'>Bienvenidos al e-commerce de la Academia</h2> 
-            <h3>{title}</h3>     
+            <h3 className="tituloCategoria">{title}</h3>     
         </Container>
     );
 }

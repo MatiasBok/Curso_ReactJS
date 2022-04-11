@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from './components/Header';
 import Footer from "./components/Footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,11 +11,17 @@ import ItemListContainer from './components/ItemList/ItemListContainer';
 import Carrito from './components/Carrito';
 
 function App() {
+
+useEffect(()=>{
+    document.title= "Tienda Crazy4Tennis";
+},[])
+
     return ( 
-        <MiProvider>
-             <BrowserRouter>
-                <Header />    
-				<Routes>
+        <BrowserRouter>
+             <MiProvider>
+                <Header />  
+                
+                <Routes>
                     <Route path="/" element={<ItemListContainer component="Home"/>}/>
                     <Route path="/categoria/:idCategoria" element={<ItemListContainer component=""/>}/>
                     <Route path="/producto/:idProducto" element={<ItemDetailContainer component="Detalles del producto"/>}/>
@@ -23,8 +29,8 @@ function App() {
                 </Routes>
                 <Footer /> 
                 <ToastContainer />
-            </BrowserRouter>  
-        </MiProvider>
+            </MiProvider>
+        </BrowserRouter>  
     )
   }
 

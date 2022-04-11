@@ -61,8 +61,8 @@ const ItemListContainer = () => {
     return (
             <>
             <Main title={idCategoria}/>
-            <div className="container" className="estiloItemListContainer">
-                <div style={{marginTop: '50px'}}>
+            <div className="container estiloItemListContainer">
+                <div className="productosILC" style={{marginTop: '10px'}}>
                  {loading ? <Spinner /> : <ItemList producto={productos}/> }  
                 </div>
             </div>    

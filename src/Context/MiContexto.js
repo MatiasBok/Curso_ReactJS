@@ -44,17 +44,27 @@ const MiProvider = ({children}) => {
     };
 
     const calcularPrecioTotal = () => {
-        let precioTotal = 0;
-        carrito.forEach((products) => {precioTotal += products.cantidad * products.precio;
-        });
-        return setTotal(precioTotal);
-    }
+        var obj = document.getElementById("totalAPagar");
+				var allSingelSubElement = document.getElementsByClassName("totalProducto");
+				var sum = "0";
+				for (singelSubElement of allSingelSubElement){
+					if (sum != ""){
+						sum += "+";
+					}
+					sum += singelSubElement.innerHTML;
+				}
+				obj.innerHTML = eval(sum);
+			}
 
     const clearCarrito =() => {
         setCarrito([]);
         setTotal(0)
         setEstado(0)
     }
+
+    /*const finalizarCompra = () => {
+        
+    }*/
 
     const valorDelContexto = {
         carrito: carrito,
