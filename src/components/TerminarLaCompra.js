@@ -1,20 +1,28 @@
-import React, {Fragment, useState} from 'react'
+import React, {Fragment, useContext, useState, useEffect} from 'react'
 import {useNavigate} from  'react-router-dom';
+import {contexto} from '../Context/MiContexto';
+import { Timestamp, addDoc, collection } from 'firebase/firestore';
+import {db} from '../firebase';
+import carrito from './Carrito'
 
 
-function TerminarLaCompra() {
+const TerminarLaCompra= () => {
 
-    const navigate = useNavigate();
+  useEffect(()=>{
+    document.title="Formulario"
+  },[])
 
-
-const [form, setForm] = useState({nombre: '', apellido: '', dirección:'', teléfono:'', email:''})
+    const navigate = useNavigate();  
+    const {calcularPrecioTotal} = useContext(contexto)
+    const [envioCompleto, setEnvioCompleto] = React.useState(false)
+    const [form, setForm] = useState({nombre: '', apellido: '', dirección:'', teléfono:'', email:''})
 
 const handleChange = (e) => {
   console.log(e.target.value)
 
   setForm({
       ...form,
-      [e.target.name] : e.target.value,
+      [e.target.nombre] : e.target.value,
       [e.target.apellido] : e.target.value,
       [e.target.dirección] : e.target.value,
       [e.target.teléfono] : e.target.value,
@@ -22,53 +30,70 @@ const handleChange = (e) => {
   })
 }
 
-const enviarDatos = (event) => {
-  event.preventDefault()
-  console.log('enviando datos...' + datos.nombre + ' ' + datos.apellido)
-}
+const finalizarEnvio= async () => {
+  setEnvioCompleto(true);
+  setTimeout (()=>{
+  envioCompleto()/*Sé que no es una función pero no sé cómo ponerlo*/
+  },3000)
 
+  const orden = {
+    comprador : {
+      nombre:"",
+      apellido:"",
+      dirección:"",
+      teléfono:"",
+      email: ""
+    },
+    items: [...carrito],
+    fecha: ordenConFecha(),
+    total: calcularPrecioTotal()
+  }    
+
+    const fecha = Timestamp.now();
+    const ordenConFecha = {...orden, timestamp: fecha}
+    const vendidosCollection = collection(db,"vendidos");
+    const ordenDeCompra = await addDoc(vendidosCollection, ordenConFecha);
+    console.log(ordenDeCompra.id);
+    }
+ 
 if (form.sent)
 return(
-  <div>
-        <h3>Muchas Gracias!!!</h3>
-        <p>Tu compra está siendo procesada</p>
-        <button className='btn btn-success buttonFinalizar' onClick={()=>navigate("/")}>Volver al catálogo</button>
-  </div>
-)
-
-return (
-    <Fragment className="fragmentTerminar">
-       <div>Muchas Gracias por su compra!!!</div>
-       <p> Por favor, llene el formulario con sus datos para una mejor atención</p>
-       <h1>Formulario</h1>
-       <form className="row" onSubmit={enviarDatos}>
-          <div className="col-md-3">
+  <div className="container">
+    {envioCompleto ?
+        <div>
+            <h3>Muchas Gracias!!!</h3>
+            <p>Su compra está siendo procesada</p>
+            <button className='btn btn-success buttonFinalizar' onClick={()=>navigate("/")}>Volver al catálogo</button>
+        </div>
+        :
+        <Fragment className="fragmentTerminar">
+            <div >
+                <h3 className="tituloTerminar">Muchas Gracias por su compra!!!</h3>
+                <p className="parrafoTerminar"> Por favor, complete el formulario con sus datos para una mejor atención</p>
+            </div>
+          <h4 className="formularioTerminar">Formulario</h4>
+          <form className="row formTerminar" onSubmit={finalizarEnvio}>
+            <div className="datosTerminar">
               <input type="text" placeholder="Nombre" className="form-control" onChange={handleChange} name="nombre" value={form.nombre}></input>
-          </div>
-          <div className="col-md-3">
               <input type="text" placeholder="Apellido" className="form-control" onChange={handleChange} name="apellido" value={form.apellido}></input>
-          </div>
-          <div className="col-md-3">
               <input type="text" placeholder="Dirección" className="form-control" onChange={handleChange} name="dirección" value={form.dirección}></input>
-          </div>
-          <div className="col-md-3">
               <input type="text" placeholder="Teléfono" className="form-control" onChange={handleChange} name="teléfono" value={form.teléfono}></input>
-          </div>
-          <div className="col-md-3">
               <input type="text" placeholder="Email" className="form-control" onChange={handleChange} name="email" value={form.email}></input>
-          </div>
-          <button type="submit" className="btn btn-primary">Enviar</button>
-       </form>
-       <ul>
-           <p>Tus datos:</p>
-           <li>{form.nombre}</li>
-           <li>{form.apellido}</li>
-           <li>{form.dirección}</li>
-           <li>{form.teléfono}</li>
-           <li>{form.email}</li>
-       </ul>
-   </Fragment>
-  );
+            </div>
+              <button type="submit" className='btn btn-success buttonEnviar'>Enviar</button>
+          </form>
+          <ul>
+              <p>Tus datos:</p>
+              <li>{form.nombre}</li>
+              <li>{form.apellido}</li>
+              <li>{form.dirección}</li>
+              <li>{form.teléfono}</li>
+              <li>{form.email}</li>
+          </ul>
+      </Fragment>
+    }
+    </div>
+  )
 }
 
 export default TerminarLaCompra

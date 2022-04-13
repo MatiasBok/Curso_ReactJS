@@ -9,6 +9,7 @@ import MiProvider from '../src/Context/MiContexto';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 import ItemListContainer from './components/ItemList/ItemListContainer';
 import Carrito from './components/Carrito';
+import TerminarLaCompra from './components/TerminarLaCompra'
 
 function App() {
 
@@ -26,6 +27,7 @@ useEffect(()=>{
                     <Route path="/categoria/:idCategoria" element={<ItemListContainer component=""/>}/>
                     <Route path="/producto/:idProducto" element={<ItemDetailContainer component="Detalles del producto"/>}/>
                     <Route path="/carrito" element={<Carrito/>}/>
+                    <Route path="/TerminarLaCompra" element={<TerminarLaCompra/>}/>
                 </Routes>
                 <Footer /> 
                 <ToastContainer />

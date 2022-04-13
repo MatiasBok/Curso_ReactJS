@@ -265,6 +265,12 @@ div.classIDC{
     color:black;
 }
 
+/*****ITEMCOUNTCARRITO*****/
+.countCarrito{
+    display:flex;
+    flex-direction: column;
+}
+
 /******FOOTER*******/
 
 #main-footer{
@@ -301,11 +307,49 @@ div.classIDC{
     color:yellow;
 }
 
-/*******TERMINAR COMPRA*******/
+/*******TERMINAR LA COMPRA*******/
 .fragmentTerminar{
     min-height:100vh;
 }
 
+.tituloTerminar{
+    font-family: 'Slackey', cursive;
+    text-align:center;
+    margin:20px;
+}
+
+.parrafoTerminar{
+    font-family: 'Kanit', sans-serif;
+    margin-left:10px;
+    font-size: 1.2rem;
+}
+
+.formularioTerminar{
+    font-family: 'Kanit', sans-serif;
+    margin:20px;
+}
+
+.formTerminar{
+    font-family: 'Kanit', sans-serif;
+    display:flex;
+    flex-direction:column;
+    padding:20px;
+    width:30%;
+}
+
+.buttonEnviar{
+    margin-left:60px;
+    
+}
+
+.datosTerminar{
+    margin-bottom:20px;
+    width:100%;
+}
+
+.nombreTerminar{
+    width:100%;
+}
 
 
 

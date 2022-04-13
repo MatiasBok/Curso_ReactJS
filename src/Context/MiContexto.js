@@ -1,5 +1,4 @@
 import React, {createContext, useState} from 'react';
-
 export const contexto = createContext() 
 const {Provider} = contexto
 
@@ -7,7 +6,7 @@ const MiProvider = ({children}) => {
 
     const [carrito,setCarrito] = useState ([])
     const[estado, setEstado] = useState(0)
-    const[total,setTotal] = useState(false)
+   
 
     const isInCart = (id) => {
         return carrito.some(products => products.id === id);
@@ -44,21 +43,13 @@ const MiProvider = ({children}) => {
     };
 
     const calcularPrecioTotal = () => {
-        var obj = document.getElementById("totalAPagar");
-				var allSingelSubElement = document.getElementsByClassName("totalProducto");
-				var sum = "0";
-				for (singelSubElement of allSingelSubElement){
-					if (sum != ""){
-						sum += "+";
-					}
-					sum += singelSubElement.innerHTML;
-				}
-				obj.innerHTML = eval(sum);
+        let total = 0;
+        carrito.forEach(product => total += product.cantidad * product.precio)
+        return total;
 			}
 
     const clearCarrito =() => {
         setCarrito([]);
-        setTotal(0)
         setEstado(0)
     }
 
@@ -72,7 +63,7 @@ const MiProvider = ({children}) => {
         removeItem: removeItem,
         isInCart: isInCart,
         calcularCantidad: calcularCantidad,
-        total: calcularPrecioTotal,
+        calcularPrecioTotal: calcularPrecioTotal,
         clearCarrito: clearCarrito,
     }
 

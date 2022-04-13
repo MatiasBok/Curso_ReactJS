@@ -16,6 +16,7 @@ return (
                <Link to="/categoria/Calzado" className="nav__link">Calzado</Link>  
                <Link to="/categoria/Raquetas" className="nav__link">Raquetas</Link>  
                <Link to="/carrito" className="linkCarrito"><CartWidget />{calcularCantidad()}</Link>
+               <Link to="/TerminarLaCompra" className="linkCarrito">Terminar la Comrpa</Link>
             </Nav>                       
         </NavbarBS>
        )
