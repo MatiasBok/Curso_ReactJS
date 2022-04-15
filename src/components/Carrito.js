@@ -24,9 +24,9 @@ const Carrito = () => {
   return(
       <div className="container">
         {ordenCompleta ?
-          <div>
-            <h4>Muchas Gracias!!!</h4>
-            <p>Por favor, espere un momento; le estamos redirigiendo al formulario.</p> 
+          <div className="espereGracias">
+            <h4 className="graciasTitulo">Muchas Gracias!!!</h4>
+            <p className="graciasParrafo">Por favor, espere un momento; le estamos redirigiendo al formulario.</p> 
           </div> 
           : 
           <div className="containerCarrito1">
@@ -61,7 +61,7 @@ const Carrito = () => {
             ))}, 
         </div>
             <div className="compraTotal">
-                <p className="mt-3 fs-4 badge bg-warning text-wrap"> Total a abonar: $ {calcularPrecioTotal()}</p>
+                <p className="mt-3 fs-4 badge bg-warning text-wrap infoAbonar"> Total a abonar: $ {calcularPrecioTotal()}</p>
                 <button className='btn btn-success buttonFinalizar' onClick={finalizarCompra}>Finalizar compra</button>
                 <button className='btn btn-danger vaciarCarrito' onClick= {clearCarrito}>Vaciar Carrito</button>
             </div>        

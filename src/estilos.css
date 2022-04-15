@@ -78,6 +78,25 @@ html,body #root{
     margin-bottom: 35px; 
 }
 
+.espereGracias{
+    min-height:100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;    
+    align-items: center;
+}
+
+.graciasTitulo{
+    font-family: 'Slackey', cursive;
+    font-size: 3rem;
+    color:darkslateblue;
+}
+
+.graciasParrafo{
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.8rem;
+}
+
 /******ITEMLISTCONTAINER********/
 
 .estiloItemListContainer{
@@ -100,6 +119,7 @@ html,body #root{
 /********ITEM*******/
 
 .CardI{    
+    padding-top: 15px;
     margin-left: 20px;  
     margin-bottom: 40px; 
 }
@@ -152,7 +172,7 @@ div.classIDC{
 }
 
 .cardImagenID{
-    padding-left:150px;
+    padding-left:130px;
     width:80%;
 }
 
@@ -211,7 +231,7 @@ div.classIDC{
     background-color:green;
     color:white;
     text-decoration: none;
-    padding:6px 6px 7px 22px;
+    padding:6px 6px 7px 26px;
     width:20%;   
 }
 
@@ -228,11 +248,12 @@ div.classIDC{
     margin-left:5px;
 }
 
-.bg-warning{
-    width:20%;
+.infoAbonar{
+    width:25%;
     padding-top: 100px;
     margin-right:5px;
     margin-left:5px;
+    
 }
 
 .vaciarCarrito{
@@ -338,18 +359,21 @@ div.classIDC{
     font-family: 'Kanit', sans-serif;
     display:flex;
     flex-direction:column;
-    padding:20px;
+    margin-bottom:20px;
     width:30%;
 }
 
 .buttonEnviar{
     margin-left:60px;
-    
 }
 
 .datosTerminar{
-    margin-bottom:20px;
+    padding-bottom:20px;
     width:100%;
+}
+
+.form-control{
+    margin-bottom:10px;
 }
 
 .nombreTerminar{
