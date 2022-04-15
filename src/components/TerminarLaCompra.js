@@ -3,38 +3,33 @@ import {useNavigate} from  'react-router-dom';
 import {contexto} from '../Context/MiContexto';
 import { Timestamp, addDoc, collection } from 'firebase/firestore';
 import {db} from '../firebase';
-import carrito from './Carrito'
-
 
 const TerminarLaCompra= () => {
-
+  const {carrito} = useContext(contexto)
+ 
   useEffect(()=>{
     document.title="Formulario"
   },[])
 
     const navigate = useNavigate();  
-    const {calcularPrecioTotal} = useContext(contexto)
-    const [envioCompleto, setEnvioCompleto] = React.useState(false)
+    const {calcularPrecioTotal} = useContext(contexto);
+    const [envioCompleto, setEnvioCompleto] = React.useState(false);
     const [form, setForm] = useState({nombre: '', apellido: '', dirección:'', teléfono:'', email:''})
 
 const handleChange = (e) => {
   console.log(e.target.value)
-
+  console.log(e.target.name)
+  
   setForm({
-      ...form,
-      [e.target.nombre] : e.target.value,
-      [e.target.apellido] : e.target.value,
-      [e.target.dirección] : e.target.value,
-      [e.target.teléfono] : e.target.value,
-      [e.target.email] : e.target.value,
-  })
+    ...form,
+    [e.target.name] : e.target.value,
+  });
 }
 
-const finalizarEnvio= async () => {
-  setEnvioCompleto(true);
-  setTimeout (()=>{
-  envioCompleto()/*Sé que no es una función pero no sé cómo ponerlo*/
-  },3000)
+const finalizarEnvio= async (evt) => {
+evt.preventDefault();
+
+
 
   const orden = {
     comprador : {
@@ -45,29 +40,30 @@ const finalizarEnvio= async () => {
       email: ""
     },
     items: [...carrito],
-    fecha: ordenConFecha(),
+    fecha: Timestamp.now(),
     total: calcularPrecioTotal()
-  }    
+  };  
+  
+  const vendidosCollection = collection(db,"vendidos");
+  const ordenDeCompra = await addDoc(vendidosCollection, orden);
 
-    const fecha = Timestamp.now();
-    const ordenConFecha = {...orden, timestamp: fecha}
-    const vendidosCollection = collection(db,"vendidos");
-    const ordenDeCompra = await addDoc(vendidosCollection, ordenConFecha);
-    console.log(ordenDeCompra.id);
-    }
+  setEnvioCompleto(true);
+  
+  console.log(ordenDeCompra.id);
+
+};
  
-if (form.sent)
 return(
-  <div className="container">
-    {envioCompleto ?
-        <div>
-            <h3>Muchas Gracias!!!</h3>
-            <p>Su compra está siendo procesada</p>
+  <div className="Terminar">
+    {envioCompleto ? (
+        <div className="compraProcesada">
+            <h3 className="tituloProcesada" >El formulario se envío con éxito!</h3>
+            <p className="parrafoProcesada">Su compra está siendo procesada, recibirá un email con toda la información.</p>
             <button className='btn btn-success buttonFinalizar' onClick={()=>navigate("/")}>Volver al catálogo</button>
         </div>
-        :
-        <Fragment className="fragmentTerminar">
-            <div >
+     ) : (
+        <Fragment>
+            <div>
                 <h3 className="tituloTerminar">Muchas Gracias por su compra!!!</h3>
                 <p className="parrafoTerminar"> Por favor, complete el formulario con sus datos para una mejor atención</p>
             </div>
@@ -91,10 +87,10 @@ return(
               <li>{form.email}</li>
           </ul>
       </Fragment>
-    }
+        )}
     </div>
-  )
-}
+  );
+};
 
 export default TerminarLaCompra
 

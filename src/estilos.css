@@ -124,6 +124,8 @@ html,body #root{
 div.classIDC{
     width:100%;
     display:flex;
+    justify-content:space-around;
+    width:100%;
     margin-bottom:50px; 
 }
 
@@ -142,19 +144,18 @@ div.classIDC{
     flex-direction: column;
 }
 
-.cardImagenID{
-    margin-top:40px;
-    margin-left:30px;
-    margin-right:10px;
-}
-
-.carousel{
-    margin-right:60px;
-    margin-left:20px;
+.carouselID{
+    width:50%;
     display:flex;
     justify-content: center;
-    align-items: center;  
+    align-items:center;
 }
+
+.cardImagenID{
+    padding-left:150px;
+    width:80%;
+}
+
 
 /***********CARRITO**********/
 .containerCarrito1{
@@ -308,19 +309,23 @@ div.classIDC{
 }
 
 /*******TERMINAR LA COMPRA*******/
-.fragmentTerminar{
-    min-height:100vh;
+.Terminar{
+    margin-right:10px;
+    margin-left:10px;
+    padding-right:10px;
+    padding-left:10px;
 }
 
 .tituloTerminar{
     font-family: 'Slackey', cursive;
+    font-size: 3rem;
     text-align:center;
+    color:crimson;
     margin:20px;
 }
 
 .parrafoTerminar{
     font-family: 'Kanit', sans-serif;
-    margin-left:10px;
     font-size: 1.2rem;
 }
 
@@ -349,6 +354,23 @@ div.classIDC{
 
 .nombreTerminar{
     width:100%;
+}
+
+.compraProcesada{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tituloProcesada{
+    font-family: 'Slackey', cursive;
+    font-size: 3.5rem;
+}
+
+.parrafoProcesada{
+    font-family: 'Kanit', sans-serif;
 }
 
 

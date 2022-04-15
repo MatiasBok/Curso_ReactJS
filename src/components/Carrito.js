@@ -25,7 +25,7 @@ const Carrito = () => {
       <div className="container">
         {ordenCompleta ?
           <div>
-            <h4>Muchas Gracias por tu compra!!!</h4>
+            <h4>Muchas Gracias!!!</h4>
             <p>Por favor, espere un momento; le estamos redirigiendo al formulario.</p> 
           </div> 
           : 

@@ -23,7 +23,7 @@ const ItemDetail = ({producto}) => {
 
   return( 
        <div className="cardDetails">
-         <Carousel fade="true" interval="60000" variant="dark" activeIndex={index} onSelect={handleSelect}>
+         <Carousel className="carouselID" fade="true" interval="60000" variant="dark" activeIndex={index} onSelect={handleSelect}>
              <Carousel.Item>
                 <img className='cardImagenID' src={producto.imageURL} alt={producto.nombre}/>       
              </Carousel.Item>
